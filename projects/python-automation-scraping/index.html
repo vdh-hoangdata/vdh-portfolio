@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <meta name="color-scheme" content="light dark" />
+  <script src="../../assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="../../assets/css/fonts.css" />
+  <link rel="stylesheet" href="../../assets/vendor/prism/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script src="../../assets/js/main.js"></script>
+<!-- site:seo start -->
+  <title>Python Automation &amp; Web Scraping | Vu Duc Hoang</title>
+  <meta name="description" content="Explore Python web scraping and automation workflows using Selenium, Playwright and BeautifulSoup, with CSV and Excel outputs." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vu Duc Hoang Portfolio" />
+  <meta property="og:title" content="Python Automation &amp; Web Scraping | Vu Duc Hoang" />
+  <meta property="og:description" content="Explore Python web scraping and automation workflows using Selenium, Playwright and BeautifulSoup, with CSV and Excel outputs." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Python Automation &amp; Web Scraping | Vu Duc Hoang" />
+  <meta name="twitter:description" content="Explore Python web scraping and automation workflows using Selenium, Playwright and BeautifulSoup, with CSV and Excel outputs." />
+  <link rel="canonical" href="https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/" />
+  <meta property="og:url" content="https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/" />
+  <meta property="og:image" content="https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/python-automation-scraping.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Project preview: Web Scraping &amp; Automation Collection." />
+  <meta name="twitter:image" content="https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/python-automation-scraping.png" />
+  <meta name="twitter:image:alt" content="Project preview: Web Scraping &amp; Automation Collection." />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","name":"Vu Duc Hoang","sameAs":["https://github.com/vdh-hoangdata","https://www.linkedin.com/in/duc-hoang-vu-data/"],"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person","url":"https://vdh-hoangdata.github.io/vdh-portfolio/"},{"@type":"WebSite","name":"Vu Duc Hoang Portfolio","inLanguage":"en","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#website","url":"https://vdh-hoangdata.github.io/vdh-portfolio/","publisher":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"}},{"@type":"WebPage","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/#webpage","url":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/","name":"Python Automation & Web Scraping | Vu Duc Hoang","inLanguage":"en","isPartOf":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#website"},"about":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"},"mainEntity":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/#project"},"breadcrumb":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/#breadcrumbs"}},{"@type":"CreativeWork","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/#project","url":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/","name":"Web Scraping & Automation Collection","description":"Explore Python web scraping and automation workflows using Selenium, Playwright and BeautifulSoup, with CSV and Excel outputs.","inLanguage":"en","author":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"},"image":"https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/python-automation-scraping.png"},{"@type":"BreadcrumbList","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vdh-hoangdata.github.io/vdh-portfolio/"},{"@type":"ListItem","position":2,"name":"Web Scraping & Automation Collection","item":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/python-automation-scraping/"}]}]}</script>
+<!-- site:seo end -->
+</head>
+<body>
+<div id="header-placeholder">
+<!-- shared:header start -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../../" class="nav-logo" aria-label="VH vdh.hoang.data portfolio home">
+      <span class="nav-logo-mark">VH</span>
+      vdh.hoang.data
+    </a>
+
+    <div class="nav-actions">
+      <label class="theme-control" hidden>
+        <span class="sr-only">Color theme</span>
+        <select id="theme-preference">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <ul class="nav-links" id="primary-navigation">
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../#projects">Projects</a></li>
+      <li><a href="../../#about">About</a></li>
+      <li><a href="mailto:vdh.hoang.data@gmail.com">Contact</a></li>
+      <li>
+        <a href="https://github.com/vdh-hoangdata" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          GitHub ↗
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- shared:header end -->
+</div>
+<main id="main-content" tabindex="-1">
+<header class="project-hero">
+<div class="container project-hero-content">
+<div class="project-hero-eyebrow">
+<a href="../../">Home</a><span>/</span><a href="../../#projects">Projects</a><span>/</span><span>Python Automation</span>
+</div>
+<h1>Python Web Scraping<br>&amp; Automation Collection</h1>
+<p class="project-hero-desc">
+        A collection of Python scripts utilizing Selenium, Playwright, BeautifulSoup, and Pandas 
+        to extract data, automate interactions, and process information from various websites.
+      </p>
+<div class="project-meta-row">
+<div class="project-meta-item">
+<span class="project-meta-label">Type</span>
+<span class="project-meta-value">Data Engineering / Automation</span>
+</div>
+<div class="project-meta-item">
+<span class="project-meta-label">Tech Stack</span>
+<span class="project-meta-value">Python, Selenium, Playwright, BS4</span>
+</div>
+</div>
+</div>
+</header>
+<section class="case-study">
+<div class="container">
+<div class="case-study-layout">
+<aside aria-label="Table of contents" class="case-study-toc">
+<div class="toc-label">Projects</div>
+<nav class="toc-list">
+<a href="#vnexpress-news">VnExpress News</a>
+<a href="#vnexpress-scores">VNExpress National High School Scores</a>
+<a href="#pinterest-playwright">Pinterest Downloader (Playwright)</a>
+<a href="#pinterest-selenium">Pinterest Downloader (Selenium)</a>
+<a href="#itviec">ITviec Scraper</a>
+<a href="#topdev">TopDev Scraper</a>
+<a href="#wiki">Wiki Table</a>
+<a href="#bbc">BBC News Converter to Word</a>
+<div class="toc-label" style="margin-top:18px;">Fiverr Client Work</div>
+<a href="#fiverr-acecqa">ACECQA Government Register</a>
+<a href="#fiverr-myfxbook">MyFXBook Trading History</a>
+<a href="#fiverr-omanbayt">OmanBayt Data Migration</a>
+<a href="#fiverr-cambodia-forum">Cambodia Expats Forum</a>
+<a href="#fiverr-multi-scrape">TripAdvisor · SkyscraperCity · FazWaz</a>
+</nav>
+</aside>
+<article class="article-body">
+<!-- case:reading-guide start -->
+<section class="case-summary" aria-labelledby="case-summary-title"><h2 id="case-summary-title">Case study at a glance</h2><dl><div><dt>Problem</dt><dd>Turn web content into structured, reusable datasets.</dd></div><div><dt>Approach</dt><dd>Used Python, Selenium, Playwright and BeautifulSoup for collection and processing.</dd></div><div><dt>Implementation</dt><dd>Tools and techniques: Python, Playwright, Selenium, BeautifulSoup, Requests.</dd></div><div><dt>Outcome</dt><dd>CSV/Excel exports and documented automation workflows.</dd></div></dl></section>
+<!-- case:reading-guide end -->
+<h2 id="vnexpress-news">VnExpress News</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Selenium</span> <span class="tag-pill">BeautifulSoup</span> <span class="tag-pill">Pandas</span> <span class="tag-pill">CSV Export</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/vnexpress_news/genres_web.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: VnExpress News"><img alt="VnExpress News" decoding="async" height="961" loading="lazy" src="../../assets/images/web-scraping/vnexpress_news/genres_web.webp" style="max-width:100%; border-radius:8px;" width="1919"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Giao diện trang tin tức VnExpress với các chuyên mục</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/vnexpress_news/genres_csv.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: VnExpress News"><img alt="VnExpress News" decoding="async" height="960" loading="lazy" src="../../assets/images/web-scraping/vnexpress_news/genres_csv.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Dữ liệu được trích xuất và lưu vào file CSV/Excel với các cột: Name, Link, Type</figcaption></figure>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">from selenium import webdriver
+from bs4 import BeautifulSoup
+import pandas as pd
+import time
+
+url = "https://vnexpress.net/"
+
+# Cấu hình Chrome options
+options = webdriver.ChromeOptions()
+options.add_argument("--disable-gpu")
+options.add_argument("--window-size=700,800")
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+
+driver = webdriver.Chrome(options=options)
+driver.get(url)
+time.sleep(3)
+
+html = driver.page_source
+driver.quit()
+
+# Parse HTML với BeautifulSoup
+soup = BeautifulSoup(html, 'lxml')
+character_news = soup.find('div', class_='row-menu')
+
+data = []
+if character_news:
+    cat_menus = character_news.find_all('ul', class_='cat-menu')
+    for menu in cat_menus:
+        first_li = menu.find('li')
+        if first_li:
+            main_link = first_li.find('a')
+            if main_link:
+                main_name = main_link.get_text(strip=True)
+                main_href = main_link.get('href', '')
+                data.append({"Name": main_name, "Link": main_href, "Type": "Main"})
+        
+        # Các mục con
+        for li in menu.find_all('li')[1:]:
+            sub_link = li.find('a')
+            if sub_link:
+                sub_name = sub_link.get_text(strip=True)
+                sub_href = sub_link.get('href', '')
+                data.append({"Name": sub_name, "Link": sub_href, "Type": "Sub"})
+
+# Lưu dữ liệu ra CSV
+df = pd.DataFrame(data)
+df.to_csv("character_news_vnexpress.csv", index=False, encoding='utf-8-sig')</code></pre>
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+<h2 id="vnexpress-scores">VnExpress Scores</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Requests</span> <span class="tag-pill">BeautifulSoup</span> <span class="tag-pill">CSV Processing</span> <span class="tag-pill">Error Handling</span> <span class="tag-pill">Rate Limiting</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/vnexpress_diemthi_thptqg/diemthi_web.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: VnExpress Scores"><img alt="VnExpress Scores" decoding="async" height="1011" loading="lazy" src="../../assets/images/web-scraping/vnexpress_diemthi_thptqg/diemthi_web.webp" style="max-width:100%; border-radius:8px;" width="1892"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Giao diện tra cứu điểm thi THPTQG 2025 trên VnExpress</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/vnexpress_diemthi_thptqg/diemthi_csv.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: VnExpress Scores"><img alt="VnExpress Scores" decoding="async" height="967" loading="lazy" src="../../assets/images/web-scraping/vnexpress_diemthi_thptqg/diemthi_csv.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Dữ liệu điểm thi THPTQG được trích xuất và lưu vào file CSV với các cột: SBD, Toán, Ngữ văn, Lịch sử, Địa lý, Vật lý, Hóa học, Sinh học...</figcaption></figure>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import requests
+import requests
+from bs4 import BeautifulSoup
+import csv
+import time
+import random
+import os
+
+START_SBD = 30000001
+END_SBD = 39999999
+YEAR = 2025
+MAX_ERRORS = 3
+OUTPUT_FILE = 'diemthi_thptqg_2025.csv'
+
+headers = {
+	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+	'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+}
+
+all_subjects = set()
+rows = []
+error_count = 0
+
+def get_student_data(sbd):
+	url = f"https://diemthi.vnexpress.net/index/detail/sbd/{sbd}/year/{YEAR}"
+	print(f"Lấy SBD: {sbd}")
+	try:
+		resp = requests.get(url, headers=headers, timeout=10)
+		if resp.status_code != 200:
+			return None
+		soup = BeautifulSoup(resp.text, 'html.parser')
+		info = soup.find('div', class_='o-detail-thisinh__info')
+		diemthi = soup.find('div', class_='o-detail-thisinh__diemthi')
+		if not info or not diemthi:
+			return None
+		sbd_tag = info.find('h2', class_='o-detail-thisinh__sbd')
+		sbd_val = sbd_tag.find('strong').text.strip() if sbd_tag else str(sbd)
+		table = diemthi.find('table', class_='e-table')
+		if not table:
+			return None
+		tbody = table.find('tbody')
+		subjects = {}
+		for tr in tbody.find_all('tr'):
+			tds = tr.find_all('td')
+			if len(tds) == 2:
+				mon = tds[0].text.strip()
+				diem = tds[1].text.strip()
+				subjects[mon] = diem
+		return {
+			'SBD': sbd_val,
+			'Subjects': subjects
+		}
+	except Exception:
+		return None
+
+def write_csv(rows, all_subjects):
+	fieldnames = ['SBD'] + sorted(all_subjects)
+	with open(OUTPUT_FILE, 'w', newline='', encoding='utf-8-sig') as f:
+		writer = csv.DictWriter(f, fieldnames=fieldnames)
+		writer.writeheader()
+		for row in rows:
+			for mon in all_subjects:
+				if mon not in row:
+					row[mon] = ''
+			writer.writerow(row)
+
+def append_csv(row, all_subjects, write_header=False):
+	fieldnames = ['SBD'] + sorted(all_subjects)
+	with open(OUTPUT_FILE, 'a', newline='', encoding='utf-8-sig') as f:
+		writer = csv.DictWriter(f, fieldnames=fieldnames)
+		if write_header:
+			writer.writeheader()
+		for mon in all_subjects:
+			if mon not in row:
+				row[mon] = ''
+		writer.writerow(row)
+
+# File exist or not
+file_exists = os.path.exists(OUTPUT_FILE)
+
+for sbd in range(START_SBD, END_SBD + 1):
+	data = get_student_data(sbd)
+	if data is None:
+		error_count += 1
+		if error_count &gt;= MAX_ERRORS:
+			print(f"Dừng lại ở SBD {sbd} do gặp {MAX_ERRORS} lần lỗi liên tiếp.")
+			break
+	else:
+		error_count = 0
+		new_subjects = set(data['Subjects'].keys()) - all_subjects
+		all_subjects.update(data['Subjects'].keys())
+		row = {'SBD': data['SBD']}
+		row.update(data['Subjects'])
+		rows.append(row)
+		# If new subjects found, update the entire CSV file with new header
+		if new_subjects and len(rows) &gt; 1:
+			print(f"Phát hiện môn mới: {new_subjects}. Đang cập nhật lại file CSV...")
+			write_csv(rows, all_subjects)
+		else:
+			# If no new subjects found, append the row to the existing CSV
+			append_csv(row, all_subjects, write_header=(not file_exists and len(rows) == 1))
+			file_exists = True
+	time.sleep(random.uniform(0.2, 0.7))</code></pre>
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+<h2 id="pinterest-playwright">Pinterest Downloader (Playwright)</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Playwright</span> <span class="tag-pill">Async/Await</span> <span class="tag-pill">Requests</span> <span class="tag-pill">Loguru</span> <span class="tag-pill">ThreadPoolExecutor</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/pinterest_download_playwright/console_download1.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Pinterest Downloader (Playwright)"><img alt="Pinterest Downloader (Playwright)" decoding="async" height="323" loading="lazy" src="../../assets/images/web-scraping/pinterest_download_playwright/console_download1.webp" style="max-width:100%; border-radius:8px;" width="1097"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Console log quá trình download ảnh</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/pinterest_download_playwright/console_download2.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Pinterest Downloader (Playwright)"><img alt="Pinterest Downloader (Playwright)" decoding="async" height="947" loading="lazy" src="../../assets/images/web-scraping/pinterest_download_playwright/console_download2.webp" style="max-width:100%; border-radius:8px;" width="1491"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Console log tiếp tục download</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/pinterest_download_playwright/folders.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Pinterest Downloader (Playwright)"><img alt="Pinterest Downloader (Playwright)" decoding="async" height="237" loading="lazy" src="../../assets/images/web-scraping/pinterest_download_playwright/folders.webp" style="max-width:100%; border-radius:8px;" width="728"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Các thư mục chứa ảnh đã download</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/pinterest_download_playwright/txt_static.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Pinterest Downloader (Playwright)"><img alt="Pinterest Downloader (Playwright)" decoding="async" height="667" loading="lazy" src="../../assets/images/web-scraping/pinterest_download_playwright/txt_static.webp" style="max-width:100%; border-radius:8px;" width="1760"/><span class="image-link-hint">View full size ↗</span></a><figcaption>File log URLs đã download</figcaption></figure>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import sys
+from loguru import logger
+
+from src.core.pinterest_scraper import PinterestScraper
+from src.utils.file_utils import check_folder_exists
+from src import config
+
+# Cấu hình Loguru với màu sắc và file rotation
+logger.remove()
+logger.add(
+    sys.stderr,
+    format="{time:YYYY-MM-DD HH:mm:ss} | {level: &lt;8} | {name}:{function}:{line} - {message}",
+    level="DEBUG",
+    colorize=True
+)
+logger.add(
+    "logs/pinterest_scraper_{time:YYYY-MM-DD}.log",
+    rotation="10 MB",
+    retention="7 days",
+    compression="zip"
+)
+
+def main():
+    """Main function to run the Pinterest image downloader."""
+    logger.info("=== Pinterest Image Downloader Started ===")
+
+    # Validate credentials
+    if not config.USERNAME or not config.PASSWORD or "default" in config.USERNAME:
+        logger.error("Pinterest credentials are not set!")
+        return
+
+    # Get folder name from user
+    folder_name_temp = input("Enter a base name for the download folders: ")
+    
+    # Initialize and run the scraper
+    scraper = PinterestScraper(username=config.USERNAME, password=config.PASSWORD)
+    scraper.run(base_folder_name=folder_name_temp)
+
+    logger.success("=== Process Finished ===")</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import asyncio
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
+from loguru import logger
+from src import config
+from src.core.downloader import ImageDownloader
+
+class PinterestScraper:
+    def __init__(self, username: str, password: str):
+        self.username = username
+        self.password = password
+        self.downloader = ImageDownloader()
+
+    async def _setup_browser(self):
+        """Khởi tạo Playwright browser với video recording."""
+        self.playwright = await async_playwright().start()
+        self.browser = await self.playwright.chromium.launch(
+            headless=config.HEADLESS,
+            slow_mo=config.SLOW_MO,
+            args=['--disable-notifications', '--no-sandbox']
+        )
+        
+        context_options = {
+            'viewport': {'width': config.VIEWPORT_WIDTH, 'height': config.VIEWPORT_HEIGHT},
+            'user_agent': config.USER_AGENT,
+            'locale': 'en-US'
+        }
+        
+        # Video recording nếu được bật
+        if config.RECORD_VIDEO:
+            context_options['record_video_dir'] = config.VIDEO_DIR
+            context_options['record_video_size'] = config.VIDEO_SIZE
+        
+        self.context = await self.browser.new_context(**context_options)
+        self.context.set_default_timeout(config.ACTION_TIMEOUT_MS)
+        self.page = await self.context.new_page()
+
+    async def login(self):
+        """Đăng nhập Pinterest với Playwright auto-wait."""
+        await self.page.goto(config.BASE_URL, wait_until='domcontentloaded')
+        await self.page.click(config.LOGIN_BUTTON_SELECTOR)
+        await self.page.fill(config.EMAIL_INPUT_SELECTOR, self.username)
+        await self.page.fill(config.PASSWORD_INPUT_SELECTOR, self.password)
+        await self.page.press(config.PASSWORD_INPUT_SELECTOR, 'Enter')
+        await self.page.wait_for_selector(config.AVATAR_SELECTOR, state='visible')
+        logger.success("Login successful")</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import os
+import requests
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from loguru import logger
+
+class ImageDownloader:
+    """Handles downloading images với parallel processing."""
+    
+    def __init__(self, max_workers: int = 5):
+        self.max_workers = max_workers
+
+    def _download_single_image(self, url: str, folder_name: str) -&gt; tuple:
+        """Download một image từ URL sử dụng requests."""
+        try:
+            highest_res_url = url.split(',')[-1].replace(' 4x', '').strip()
+            filename = highest_res_url.split('/')[-1].split('?')[0]
+            filepath = os.path.join(folder_name, filename)
+
+            if os.path.exists(filepath):
+                return (highest_res_url, True, "Already exists")
+
+            headers = {'User-Agent': config.USER_AGENT}
+            with requests.get(highest_res_url, stream=True, timeout=15, headers=headers) as r:
+                r.raise_for_status()
+                with open(filepath, 'wb') as f:
+                    for chunk in r.iter_content(chunk_size=8192):
+                        f.write(chunk)
+            
+            return (highest_res_url, True, "")
+        except Exception as e:
+            return (url, False, str(e))
+
+    def download_images(self, image_urls: list, folder_name: str):
+        """Downloads images với parallel processing."""
+        unique_urls = sorted(list(set(image_urls)))
+        
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            future_to_url = {
+                executor.submit(self._download_single_image, url, folder_name): url 
+                for url in unique_urls
+            }
+            
+            for future in as_completed(future_to_url):
+                url, success, error = future.result()
+                if success:
+                    logger.success(f"Downloaded: {url.split('/')[-1][:50]}")</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# --- Credentials ---
+USERNAME = os.getenv("PINTEREST_USERNAME", "default_user@example.com")
+PASSWORD = os.getenv("PINTEREST_PASSWORD", "default_password")
+
+# --- Browser Settings ---
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+VIEWPORT_WIDTH = 1200
+VIEWPORT_HEIGHT = 800
+HEADLESS = False
+SLOW_MO = 100
+
+# --- Pinterest Selectors ---
+BASE_URL = "https://www.pinterest.com"
+LOGIN_BUTTON_SELECTOR = "[data-test-id='simple-login-button']"
+EMAIL_INPUT_SELECTOR = "#email"
+PASSWORD_INPUT_SELECTOR = "#password"
+AVATAR_SELECTOR = "[data-test-id='gestalt-avatar-svg']"
+BOARD_TITLE_SELECTOR = "[data-test-id='board-card-title'] h2"
+IMAGE_SELECTOR = "img[srcset]"
+
+# --- Video Recording ---
+RECORD_VIDEO = True
+VIDEO_DIR = "recordings"
+VIDEO_SIZE = {"width": 1280, "height": 720}</code></pre>
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+<h2 id="pinterest-selenium">Pinterest Downloader (Selenium)</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Selenium</span> <span class="tag-pill">BeautifulSoup</span> <span class="tag-pill">Chrome WebDriver</span> <span class="tag-pill">python-dotenv</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/pinterest_download_selenium/console_download.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Pinterest Downloader (Selenium)"><img alt="Pinterest Downloader (Selenium)" decoding="async" height="891" loading="lazy" src="../../assets/images/web-scraping/pinterest_download_selenium/console_download.webp" style="max-width:100%; border-radius:8px;" width="1497"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Console log quá trình download ảnh</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/pinterest_download_selenium/folders.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Pinterest Downloader (Selenium)"><img alt="Pinterest Downloader (Selenium)" decoding="async" height="237" loading="lazy" src="../../assets/images/web-scraping/pinterest_download_selenium/folders.webp" style="max-width:100%; border-radius:8px;" width="728"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Các thư mục chứa ảnh đã download</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/pinterest_download_selenium/txt_static.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Pinterest Downloader (Selenium)"><img alt="Pinterest Downloader (Selenium)" decoding="async" height="667" loading="lazy" src="../../assets/images/web-scraping/pinterest_download_selenium/txt_static.webp" style="max-width:100%; border-radius:8px;" width="1760"/><span class="image-link-hint">View full size ↗</span></a><figcaption>File log URLs đã download</figcaption></figure>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">from src.core.pinterest_scraper import PinterestScraper
+from src.utils.file_utils import check_folder_exists
+from src import config
+
+def main():
+    """Main function to run the Pinterest image downloader."""
+    print("--- Pinterest Image Downloader ---")
+
+    # Validate credentials are set
+    if not config.USERNAME or not config.PASSWORD or "default" in config.USERNAME:
+        print("\nERROR: Pinterest credentials are not set.")
+        print("Please create a '.env' file in the root directory with:")
+        print("PINTEREST_USERNAME=your_email@example.com")
+        print("PINTEREST_PASSWORD=your_password")
+        return
+
+    # Get folder name from user
+    while True:
+        folder_name_temp = input("Enter a base name for the download folders: ")
+        if not folder_name_temp:
+            print("Folder name cannot be empty.")
+            continue
+        
+        if check_folder_exists(f"{folder_name_temp}_*"):
+            print("Warning: Folders with this base name might already exist.")
+        break
+    
+    # Initialize and run the scraper
+    scraper = PinterestScraper(username=config.USERNAME, password=config.PASSWORD)
+    scraper.run(base_folder_name=folder_name_temp)
+
+    print("\n--- Process Finished ---")
+
+if __name__ == "__main__":
+    main()</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">from time import sleep
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from src import config
+from src.core.downloader import ImageDownloader
+
+class PinterestScraper:
+    """A Selenium-based scraper for downloading images from Pinterest boards."""
+    
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+        self.downloader = ImageDownloader()
+        self.driver = self._setup_driver()
+
+    def _setup_driver(self):
+        """Initializes and configures the Chrome WebDriver."""
+        options = Options()
+        options.add_argument(f"user-agent={config.USER_AGENT}")
+        options.add_argument(f"window-size={config.WINDOW_SIZE}")
+        options.add_argument("--disable-notifications")
+        driver = webdriver.Chrome(options=options)
+        driver.implicitly_wait(config.IMPLICIT_WAIT_TIME)
+        return driver
+
+    def login(self):
+        """Logs into Pinterest."""
+        print("Navigating to Pinterest and logging in...")
+        self.driver.get(config.BASE_URL)
+        wait = WebDriverWait(self.driver, config.EXPLICIT_WAIT_TIMEOUT)
+        
+        # Click login button
+        login_button = wait.until(EC.element_to_be_clickable(
+            (By.CSS_SELECTOR, config.LOGIN_BUTTON_SELECTOR)))
+        login_button.click()
+
+        # Enter credentials
+        email_field = wait.until(EC.presence_of_element_located(
+            (By.ID, config.EMAIL_INPUT_ID)))
+        email_field.send_keys(self.username)
+
+        password_field = self.driver.find_element(By.ID, config.PASSWORD_INPUT_ID)
+        password_field.send_keys(self.password)
+        password_field.send_keys(Keys.RETURN)
+        
+        # Wait for login to complete
+        wait.until(EC.element_to_be_clickable(
+            (By.CSS_SELECTOR, config.AVATAR_SELECTOR)))
+        print("Login successful.")</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">def scrape_images_from_board(self, board_name):
+    """Navigates to a board and scrapes all image URLs with infinite scroll."""
+    print(f"\n--- Starting scrape for board: {board_name} ---")
+    image_urls = []
+    
+    # Navigate to the board
+    board_link = self.driver.find_element(By.XPATH, f"//h2[text()='{board_name}']")
+    board_link.click()
+    sleep(random.uniform(*config.MEDIUM_WAIT))
+
+    # Scroll down to load all images
+    scroll_pause_time = 2
+    no_change_count = 0
+    max_no_change = 5  # Stop after 5 consecutive scrolls with no new height
+    
+    while True:
+        last_height = self.driver.execute_script("return document.body.scrollHeight")
+        
+        # Scroll down 1000px
+        self.driver.execute_script("window.scrollBy(0, 1000);")
+        sleep(scroll_pause_time + random.uniform(0.5, 1.5))
+        
+        # Collect images from current page state
+        soup = BeautifulSoup(self.driver.page_source, 'html.parser')
+        images = soup.select(config.IMAGE_SELECTOR)
+        
+        for image in images:
+            if image.get('srcset'):
+                image_urls.append(image['srcset'])
+        
+        new_height = self.driver.execute_script("return document.body.scrollHeight")
+        print(f"Scrolled: {len(set(image_urls))} unique images found.")
+        
+        if new_height == last_height:
+            no_change_count += 1
+            if no_change_count &gt;= max_no_change:
+                print("Reached the end of the page.")
+                break
+        else:
+            no_change_count = 0
+    
+    return list(set(image_urls))</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import urllib.request
+from src.utils.file_utils import log_urls
+from src.config import DOWNLOADED_LOG, NOT_DOWNLOADED_LOG
+import os
+
+class ImageDownloader:
+    """Handles downloading images and logging results."""
+
+    def download_images(self, image_urls, folder_name):
+        """Downloads images from a list of URLs into a specified folder."""
+        downloaded_urls = []
+        not_downloaded_urls = []
+
+        unique_urls = sorted(list(set(image_urls)))
+        print(f"\nFound {len(unique_urls)} unique images to download.")
+
+        for url in unique_urls:
+            try:
+                # The last URL in srcset is the highest resolution (4x)
+                highest_res_url = url.split(',')[-1].replace(' 4x', '').strip()
+                filename = highest_res_url.split('/')[-1].split('?')[0]
+                
+                print(f"Downloading: {filename}")
+                urllib.request.urlretrieve(
+                    highest_res_url, 
+                    os.path.join(folder_name, filename)
+                )
+                downloaded_urls.append(highest_res_url)
+            except Exception as e:
+                print(f"Error downloading: {e}")
+                not_downloaded_urls.append(highest_res_url)
+
+        # Log results
+        log_urls(DOWNLOADED_LOG, downloaded_urls)
+        log_urls(NOT_DOWNLOADED_LOG, not_downloaded_urls)
+
+        print(f"Finished: {len(downloaded_urls)} succeeded, {len(not_downloaded_urls)} failed.")</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# --- Credentials ---
+USERNAME = os.getenv("PINTEREST_USERNAME", "default_user@example.com")
+PASSWORD = os.getenv("PINTEREST_PASSWORD", "default_password")
+
+# --- WebDriver Settings ---
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+WINDOW_SIZE = "1200,800"
+
+# --- Pinterest Selectors ---
+BASE_URL = "https://www.pinterest.com"
+LOGIN_BUTTON_SELECTOR = "div[data-test-id='simple-login-button']"
+EMAIL_INPUT_ID = "email"
+PASSWORD_INPUT_ID = "password"
+AVATAR_SELECTOR = "div[data-test-id='gestalt-avatar-svg']"
+BOARD_TITLE_SELECTOR = "div[data-test-id='board-card-title'] h2"
+IMAGE_SELECTOR = "img[srcset]"
+
+# --- Timing ---
+SHORT_WAIT = (2, 4)
+MEDIUM_WAIT = (3, 5)
+IMPLICIT_WAIT_TIME = 10
+EXPLICIT_WAIT_TIMEOUT = 20</code></pre>
+<h2 id="itviec">ITviec Scraper</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Selenium</span> <span class="tag-pill">BeautifulSoup</span> <span class="tag-pill">Pandas</span> <span class="tag-pill">Excel Export</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/itviec/itviec_login.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: ITviec Scraper"><img alt="ITviec Scraper" decoding="async" height="1015" loading="lazy" src="../../assets/images/web-scraping/itviec/itviec_login.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Giao diện đăng nhập ITViec trước khi thực hiện scraping</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/itviec/itviec_web.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: ITviec Scraper"><img alt="ITviec Scraper" decoding="async" height="1023" loading="lazy" src="../../assets/images/web-scraping/itviec/itviec_web.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Giao diện trang tuyển dụng ITViec với danh sách việc làm IT</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/itviec/itviec_cmd.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: ITviec Scraper"><img alt="ITviec Scraper" decoding="async" height="325" loading="lazy" src="../../assets/images/web-scraping/itviec/itviec_cmd.webp" style="max-width:100%; border-radius:8px;" width="1102"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Terminal hiển thị quá trình scraping dữ liệu từ ITViec</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/itviec/itviec_excel.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: ITviec Scraper"><img alt="ITviec Scraper" decoding="async" height="998" loading="lazy" src="../../assets/images/web-scraping/itviec/itviec_excel.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Dữ liệu việc làm IT được trích xuất và lưu vào file Excel</figcaption></figure><p># No code found</p><hr style="border-top:1px solid #444; margin:40px 0;"/>
+<h2 id="topdev">TopDev Scraper</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Selenium</span> <span class="tag-pill">BeautifulSoup</span> <span class="tag-pill">Pandas</span> <span class="tag-pill">Excel Export</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/topdev/topdev_login.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: TopDev Scraper"><img alt="TopDev Scraper" decoding="async" height="1023" loading="lazy" src="../../assets/images/web-scraping/topdev/topdev_login.webp" style="max-width:100%; border-radius:8px;" width="1917"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Giao diện đăng nhập TopDev trước khi thực hiện scraping</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/topdev/topdev_web.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: TopDev Scraper"><img alt="TopDev Scraper" decoding="async" height="1017" loading="lazy" src="../../assets/images/web-scraping/topdev/topdev_web.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Giao diện trang tuyển dụng TopDev với danh sách việc làm IT</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/topdev/topdev_cmd.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: TopDev Scraper"><img alt="TopDev Scraper" decoding="async" height="555" loading="lazy" src="../../assets/images/web-scraping/topdev/topdev_cmd.webp" style="max-width:100%; border-radius:8px;" width="1083"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Terminal hiển thị quá trình scraping dữ liệu từ TopDev</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/topdev/topdev_excel.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: TopDev Scraper"><img alt="TopDev Scraper" decoding="async" height="992" loading="lazy" src="../../assets/images/web-scraping/topdev/topdev_excel.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Dữ liệu việc làm IT được trích xuất và lưu vào file Excel</figcaption></figure><p># No code found</p><hr style="border-top:1px solid #444; margin:40px 0;"/>
+<h2 id="wiki">Wiki Table Scraper</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Requests</span> <span class="tag-pill">BeautifulSoup</span> <span class="tag-pill">CSV Processing</span> <span class="tag-pill">Data Cleaning</span> <span class="tag-pill">Wikipedia API</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/table_wiki/wiki_web.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Wiki Table Scraper"><img alt="Wiki Table Scraper" decoding="async" height="1022" loading="lazy" src="../../assets/images/web-scraping/table_wiki/wiki_web.webp" style="max-width:100%; border-radius:8px;" width="1892"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Trang Wikipedia chứa bảng huy chương Olympic Tokyo 2020</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/table_wiki/wiki_csv_cleaned.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Wiki Table Scraper"><img alt="Wiki Table Scraper" decoding="async" height="937" loading="lazy" src="../../assets/images/web-scraping/table_wiki/wiki_csv_cleaned.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Dữ liệu bảng huy chương Olympic được trích xuất và làm sạch thành file CSV với các cột: Rank, Country, Gold, Silver, Bronze, Total</figcaption></figure>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import requests
+from bs4 import BeautifulSoup
+import csv
+
+url = 'https://en.wikipedia.org/wiki/2020_Summer_Olympics_medal_table'
+
+useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+
+headers = {
+    'User-Agent': useragent
+}
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    soup = BeautifulSoup(response.content, 'html.parser')
+    table = soup.find('table', {'class': 'wikitable sortable sticky-header-multi plainrowheaders jquery-tablesorter'})
+    
+    data = []
+    for row in table.find_all('tr'):
+        cols = row.find_all(['th', 'td'])
+        cols = [col.text.strip() for col in cols]
+        data.append(cols)
+    
+    with open('olympic_medal_table.csv', 'w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerows(data)
+    
+    print("Finished")
+else:
+    print(f'Failed to retrieve the webpage. Status code: {response.status_code}')</code></pre>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import csv
+
+def process_csv(input_file, output_file):
+    with open(input_file, mode='r', encoding='utf-8') as infile, open(output_file, mode='w', encoding='utf-8', newline='') as outfile:
+        reader = csv.reader(infile)
+        writer = csv.writer(outfile)
+        
+        previous_row = None
+        for row in reader:
+            if len(row) == 5:
+                if previous_row:
+                    row.insert(0, previous_row[0])
+            writer.writerow(row)
+            previous_row = row
+
+input_file = 'olympic_medal_table.csv'
+output_file = 'olympic_medal_table_cleaned.csv'
+process_csv(input_file, output_file)</code></pre>
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+<h2 id="bbc">BBC Converter</h2>
+<div style="margin-bottom: 20px;">
+<span class="tag-pill">Python</span> <span class="tag-pill">Requests</span> <span class="tag-pill">BeautifulSoup</span> <span class="tag-pill">python-docx</span> <span class="tag-pill">Pillow (PIL)</span> <span class="tag-pill">BBC News</span>
+</div>
+<figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/bbc/bbc_web.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: BBC Converter"><img alt="BBC Converter" decoding="async" height="1017" loading="lazy" src="../../assets/images/web-scraping/bbc/bbc_web.webp" style="max-width:100%; border-radius:8px;" width="1637"/><span class="image-link-hint">View full size ↗</span></a><figcaption>Trang bài viết BBC Travel với hình ảnh và nội dung phong phú</figcaption></figure><figure class="diagram-wrap fade-in"><a class="image-link" href="../../assets/images/web-scraping/bbc/bbc_word.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: BBC Converter"><img alt="BBC Converter" decoding="async" height="967" loading="lazy" src="../../assets/images/web-scraping/bbc/bbc_word.webp" style="max-width:100%; border-radius:8px;" width="1918"/><span class="image-link-hint">View full size ↗</span></a><figcaption>File DOCX hoàn chỉnh với tiêu đề, nội dung, hình ảnh và caption được định dạng chuyên nghiệp</figcaption></figure>
+<p>Code Snippet:</p>
+<pre tabindex="0" role="region" aria-label="Scrollable code example"><code class="language-python">import requests
+from bs4 import BeautifulSoup
+from docx import Document
+from docx.shared import Inches
+from PIL import Image
+from io import BytesIO
+
+url = "https://www.bbc.com/travel/article/20230313-the-slowest-train-journey-in-india"
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+}
+
+response = requests.get(url, headers=headers)
+soup = BeautifulSoup(response.text, "html.parser")
+
+doc = Document()
+
+article = soup.find("article")
+if not article:
+    print("Cannot find article!")
+    exit()
+
+title = article.find("h1")
+if title:
+    doc.add_heading(title.get_text(strip=True), level=0)
+
+# Description
+desc = article.find("p", class_="ssrcss-1q0x1qg-Paragraph")
+if desc:
+    doc.add_paragraph(desc.get_text(strip=True))
+
+# Get content and images
+for elem in article.find_all(["h2", "h3", "p", "figure"], recursive=True):
+    if elem.get("data-component") in ["tag-list-block", "advertisement-block"]:
+        break
+
+    if elem.name in ["h2", "h3"]:
+        text = elem.get_text(strip=True)
+        if text:
+            doc.add_heading(text, level=2)
+
+    elif elem.name == "p":
+        text = elem.get_text(strip=True)
+        if text:
+            doc.add_paragraph(text)
+
+    elif elem.name == "figure":
+        img_tag = elem.find("img", {"srcset": True})
+        if img_tag:
+            srcset = img_tag["srcset"]
+            img_url = srcset.split(",")[-1].strip().split(" ")[0]
+            print("Ảnh gốc:", img_url)
+
+            # Download image
+            img_res = requests.get(img_url)
+            image = Image.open(BytesIO(img_res.content))
+
+            # Convert to JPEG for Word
+            img_io = BytesIO()
+            image.convert("RGB").save(img_io, format="JPEG")
+            img_io.seek(0)
+
+            # Insert image into Word
+            doc.add_picture(img_io, width=Inches(4))
+
+        caption = elem.find("figcaption")
+        if caption:
+            para = doc.add_paragraph(caption.get_text(strip=True))
+            if para.runs:
+                para.runs[0].italic = True
+
+# Save Word file
+doc.save("bbc_article.docx")
+print("Finished Saving")</code></pre>
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+
+<!-- ===================== FIVERR CLIENT WORK ===================== -->
+<div style="background:linear-gradient(135deg,rgba(99,102,241,0.08) 0%,rgba(139,92,246,0.05) 100%);border:1px solid rgba(99,102,241,0.25);border-radius:12px;padding:20px 24px;margin-bottom:40px;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    <span style="color:var(--violet-text);font-weight:600;font-size:0.85rem;letter-spacing:0.05em;text-transform:uppercase;">Confidential Client Work</span>
+  </div>
+  <p style="margin:0;color:var(--ink-soft);font-size:0.9rem;line-height:1.6;">
+    The following projects were delivered to paying clients via Fiverr. Screenshots and raw data are withheld to respect client confidentiality and source-site terms of service. Project scope, technical approach, and key metrics are shared for portfolio purposes.
+  </p>
+</div>
+
+<!-- Project 1 — ACECQA -->
+<h2 id="fiverr-acecqa">ACECQA Government Register Scraper</h2>
+<div style="margin-bottom:20px;">
+  <span class="tag-pill">Python</span>
+  <span class="tag-pill">Requests</span>
+  <span class="tag-pill">BeautifulSoup</span>
+  <span class="tag-pill">Pandas</span>
+  <span class="tag-pill">Cloudflare Bypass</span>
+  <span class="tag-pill">Excel Export</span>
+</div>
+
+<div class="project-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;">
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--violet-text);">100%</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Email Coverage</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--violet-text);">5</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Output Columns</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--violet-text);">2</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Excel Deliverables</div>
+  </div>
+</div>
+
+<p>Extracted the complete national register of childcare services from the Australian government's ACECQA portal (<code>acecqa.gov.au</code>). The target site deployed Cloudflare bot-protection to obscure contact information, requiring a session-warm-up and header-spoofing strategy to decode emails server-side before export.</p>
+
+<p><strong>Deliverables:</strong></p>
+<ul>
+  <li><strong>Cleaned XLSX</strong> — Name, Address, State, Phone, Email for every listed service.</li>
+  <li><strong>Master XLSX</strong> — All original government fields (Ratings, Approval Dates, etc.) merged with the scraped emails.</li>
+</ul>
+
+<p><strong>Key challenges:</strong></p>
+<ul>
+  <li>Cloudflare email obfuscation — decoded client-side encoded addresses by replicating the CF decoding algorithm in Python.</li>
+  <li>Verified that blank phone/state fields are genuinely absent on the source, not scraping gaps.</li>
+  <li>Delivered both a minimal "requested columns" file and a full master dataset for future reference.</li>
+</ul>
+
+<p># No code found</p>
+
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+
+<!-- Project 2 — MyFXBook -->
+<h2 id="fiverr-myfxbook">MyFXBook Trading History Extractor</h2>
+<div style="margin-bottom:20px;">
+  <span class="tag-pill">Python</span>
+  <span class="tag-pill">Playwright</span>
+  <span class="tag-pill">Pagination</span>
+  <span class="tag-pill">Deduplication</span>
+  <span class="tag-pill">CSV Export</span>
+  <span class="tag-pill">Anti-Bot Handling</span>
+</div>
+
+<div class="project-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;">
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--teal-text);">236</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Pages Scraped</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--teal-text);">ISO 8601</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Date Format</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--teal-text);">0</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Duplicate Rows</div>
+  </div>
+</div>
+
+<p>Built a Playwright automation script to extract the complete historical trade log from a public MyFXBook account profile (<code>myfxbook.com/members/RockwellFX/ophir/11951077</code>). The page renders trade data dynamically and serves interstitial ad pop-ups that block the automation flow.</p>
+
+<p><strong>Deliverables:</strong></p>
+<ul>
+  <li>Single deduplicated CSV of all ~236 pages of trade history.</li>
+  <li>Pre-formatted columns matching a client-approved sample: ISO dates, raw seconds for duration, numeric prices and gain.</li>
+  <li>Playwright <code>.py</code> source script delivered as-is.</li>
+</ul>
+
+<p><strong>Key challenges:</strong></p>
+<ul>
+  <li>Pop-up ad overlay on load — script includes a 15-second manual intervention window; bot auto-resumes after the user dismisses the ad and clicks the History tab.</li>
+  <li>Deduplication across paginated results where page boundaries occasionally repeated the last row of the previous page.</li>
+</ul>
+
+<p># No code found</p>
+
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+
+<!-- Project 3 — OmanBayt -->
+<h2 id="fiverr-omanbayt">OmanBayt Real Estate Data Migration Bot</h2>
+<div style="margin-bottom:20px;">
+  <span class="tag-pill">Python</span>
+  <span class="tag-pill">Playwright</span>
+  <span class="tag-pill">API Interception</span>
+  <span class="tag-pill">WAF Bypass</span>
+  <span class="tag-pill">Laravel Admin</span>
+  <span class="tag-pill">Data Transformation</span>
+</div>
+
+<div class="project-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;">
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--gold-text);">3</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Pipeline Stages</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--gold-text);">25 MB</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Media File Limit Handled</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--gold-text);">Full</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">End-to-End Automation</div>
+  </div>
+</div>
+
+<p>Designed and delivered a complete 3-stage data migration pipeline to move "Top Projects" listings from OmanReal into a Laravel-based admin panel at OmanBayt. The pipeline covered API extraction, field mapping transformation, and fully automated browser-based data entry with media upload.</p>
+
+<p><strong>Deliverables:</strong></p>
+<ul>
+  <li><strong>Data Extractor</strong> — Python scraper using API interception and session warm-up to pull project details, units, amenities, and image links from OmanReal's internal JSON APIs.</li>
+  <li><strong>Visual Automation Uploader</strong> — Playwright bot that logs into <code>admin.omanbayt.com</code>, fills the "Add Property" form, uploads images, and injects Payment Plans dynamically into the Floor Plans section.</li>
+  <li><strong>README Documentation</strong> — Step-by-step guides for both tools so the client's dev team can maintain and re-run independently.</li>
+</ul>
+
+<p><strong>Key challenges:</strong></p>
+<ul>
+  <li>WAF (Web Application Firewall) bypass on the target admin panel — solved with stealth Playwright headers and request fingerprint spoofing.</li>
+  <li>25 MB upload ceiling for media files — handled with pre-upload compression and chunked retry logic.</li>
+  <li>Dynamic Payment Plan injection — scraped plan data was serialized and injected directly into the Floor Plans section via DOM manipulation, as no dedicated UI field existed.</li>
+</ul>
+
+<p># No code found</p>
+
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+
+<!-- Project 4 — Cambodia Forum -->
+<h2 id="fiverr-cambodia-forum">Cambodia Expats Online — Full Forum Extraction</h2>
+<div style="margin-bottom:20px;">
+  <span class="tag-pill">Python</span>
+  <span class="tag-pill">Requests</span>
+  <span class="tag-pill">Proxy Rotation</span>
+  <span class="tag-pill">Rate Limiting</span>
+  <span class="tag-pill">CSV Export</span>
+  <span class="tag-pill">Stealth Crawling</span>
+</div>
+
+<div class="project-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px;">
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--blue);">46,991</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Topics Extracted</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--blue);">621,235</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Posts Extracted</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--blue);">21</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Category Folders</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--blue);">14 days</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">Low-and-Slow Runtime</div>
+  </div>
+</div>
+
+<p>Performed a complete historical extraction of <code>cambodiaexpatsonline.com</code> — one of the largest expat forums in Southeast Asia — for a client market research project. The crawl was deliberately run in "low-and-slow" mode over 14 days to stay under the site's admin monitoring thresholds and avoid IP bans.</p>
+
+<p><strong>Deliverables:</strong></p>
+<ul>
+  <li>621,235 posts organized into 21 category-specific CSV folders covering all publicly accessible content.</li>
+  <li>Each row: Topic Title, Post Content, Comments, Date.</li>
+  <li>~35,000 posts and ~8,500 topics in private/premium categories (VIP Nightlife, Darknet Cambodia News) were documented as out-of-scope with a clear explanation for the client.</li>
+</ul>
+
+<p><strong>Key challenges:</strong></p>
+<ul>
+  <li>Custom proxy-rotation architecture with randomized delays to bypass server-side admin monitoring.</li>
+  <li>Maintaining session continuity across a 14-day crawl window with automatic resume-on-failure checkpointing.</li>
+  <li>Category-level folder organization for 21 distinct sections with consistent CSV schema.</li>
+</ul>
+
+<p># No code found</p>
+
+<hr style="border-top:1px solid #444; margin:40px 0;"/>
+
+<!-- Project 5 — Multi-site -->
+<h2 id="fiverr-multi-scrape">TripAdvisor · SkyscraperCity · FazWaz</h2>
+<div style="margin-bottom:20px;">
+  <span class="tag-pill">Python</span>
+  <span class="tag-pill">Playwright</span>
+  <span class="tag-pill">BeautifulSoup</span>
+  <span class="tag-pill">Pagination Bypass</span>
+  <span class="tag-pill">Nested Thread Parsing</span>
+  <span class="tag-pill">Multi-Currency</span>
+  <span class="tag-pill">CSV Export</span>
+</div>
+
+<div class="project-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px;">
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--rose-text);">32,062</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">TripAdvisor Topics</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--rose-text);">695</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">SkyscraperCity Threads</div>
+  </div>
+  <div style="background:var(--cream-2);border:1px solid var(--cream-3);border-radius:10px;padding:16px 20px;text-align:center;">
+    <div style="font-size:1.8rem;font-weight:700;color:var(--rose-text);">181,408</div>
+    <div style="font-size:0.8rem;color:var(--ink-soft);margin-top:4px;">FazWaz Listings</div>
+  </div>
+</div>
+
+<p>A three-target research dataset project for a Southeast Asia market analysis client. Each site presented distinct technical challenges requiring a separate scraping strategy.</p>
+
+<p><strong>TripAdvisor Cambodia Forum</strong> — 32,062 topics extracted via deep pagination bypass. TripAdvisor applies aggressive bot detection on high page-depth navigation; solved by spoofing browser fingerprints with Playwright and inserting realistic scroll/interaction delays.</p>
+
+<p><strong>SkyscraperCity Cambodia Threads</strong> — 695 main topics with full nested parent-child thread structure captured using <code>post_id</code> / <code>parent_post_id</code> mapping. Delivered as a single CSV where indentation level is encoded numerically rather than visually.</p>
+
+<p><strong>FazWaz Real Estate</strong> — 181,408 listings (114,165 Sale + 67,243 Rent) scraped across all Cambodia property types. Multi-currency normalization required: server-side forced-USD cookies were overridden by the API for some locales, so exchange-rate conversion (1 USD ≈ 26,300 VND) was applied at the transform stage. Null bedroom/bathroom values for non-residential listings (land, factories) were preserved and documented.</p>
+
+<p># No code found</p>
+
+<hr style="border-top:1px solid #444; margin:40px 0;"/></article>
+</div>
+</div>
+</section>
+</main>
+<div id="footer-placeholder">
+<!-- shared:footer start -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">// Vu Duc Hoang</span>
+      <span class="footer-copy">© <span id="current-year">2026</span> · Data Analytics · Data Engineering · Python Automation</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/vdh-hoangdata" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/duc-hoang-vu-data/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="mailto:vdh.hoang.data@gmail.com" aria-label="Email">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 001.228 0L20 9.044 20.002 18H4z"/>
+        </svg>
+        Email
+      </a>
+    </div>
+  </div>
+</footer>
+<!-- shared:footer end -->
+</div>
+<script defer src="../../assets/vendor/prism/prism-core.min.js"></script>
+<script defer src="../../assets/vendor/prism/prism-python.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta name="color-scheme" content="light dark" />
+  <script src="../../assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="../../assets/css/fonts.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script src="../../assets/js/main.js"></script>
+<!-- site:seo start -->
+  <title>Instacart Data Pipeline &amp; Analytics | Vu Duc Hoang</title>
+  <meta name="description" content="Explore a Python and SQL Server pipeline for Instacart data, with Airflow orchestration, dimensional modeling and Power BI reporting." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vu Duc Hoang Portfolio" />
+  <meta property="og:title" content="Instacart Data Pipeline &amp; Analytics | Vu Duc Hoang" />
+  <meta property="og:description" content="Explore a Python and SQL Server pipeline for Instacart data, with Airflow orchestration, dimensional modeling and Power BI reporting." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Instacart Data Pipeline &amp; Analytics | Vu Duc Hoang" />
+  <meta name="twitter:description" content="Explore a Python and SQL Server pipeline for Instacart data, with Airflow orchestration, dimensional modeling and Power BI reporting." />
+  <link rel="canonical" href="https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/" />
+  <meta property="og:url" content="https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/" />
+  <meta property="og:image" content="https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/instacart-market-basket.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Project preview: Instacart Market Basket Data Pipeline &amp; Analytics." />
+  <meta name="twitter:image" content="https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/instacart-market-basket.png" />
+  <meta name="twitter:image:alt" content="Project preview: Instacart Market Basket Data Pipeline &amp; Analytics." />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","name":"Vu Duc Hoang","sameAs":["https://github.com/vdh-hoangdata","https://www.linkedin.com/in/duc-hoang-vu-data/"],"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person","url":"https://vdh-hoangdata.github.io/vdh-portfolio/"},{"@type":"WebSite","name":"Vu Duc Hoang Portfolio","inLanguage":"en","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#website","url":"https://vdh-hoangdata.github.io/vdh-portfolio/","publisher":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"}},{"@type":"WebPage","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/#webpage","url":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/","name":"Instacart Data Pipeline & Analytics | Vu Duc Hoang","inLanguage":"en","isPartOf":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#website"},"about":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"},"mainEntity":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/#project"},"breadcrumb":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/#breadcrumbs"}},{"@type":"CreativeWork","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/#project","url":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/","name":"Instacart Market Basket Data Pipeline & Analytics","description":"Explore a Python and SQL Server pipeline for Instacart data, with Airflow orchestration, dimensional modeling and Power BI reporting.","inLanguage":"en","author":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"},"image":"https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/instacart-market-basket.png"},{"@type":"BreadcrumbList","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vdh-hoangdata.github.io/vdh-portfolio/"},{"@type":"ListItem","position":2,"name":"Instacart Market Basket Data Pipeline & Analytics","item":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/instacart-market-basket/"}]}]}</script>
+<!-- site:seo end -->
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <div id="header-placeholder">
+<!-- shared:header start -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../../" class="nav-logo" aria-label="VH vdh.hoang.data portfolio home">
+      <span class="nav-logo-mark">VH</span>
+      vdh.hoang.data
+    </a>
+
+    <div class="nav-actions">
+      <label class="theme-control" hidden>
+        <span class="sr-only">Color theme</span>
+        <select id="theme-preference">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <ul class="nav-links" id="primary-navigation">
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../#projects">Projects</a></li>
+      <li><a href="../../#about">About</a></li>
+      <li><a href="mailto:vdh.hoang.data@gmail.com">Contact</a></li>
+      <li>
+        <a href="https://github.com/vdh-hoangdata" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          GitHub ↗
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- shared:header end -->
+</div>
+
+  <!-- ── Project Hero ───────────────────────────────────────── -->
+  <header class="project-hero">
+    <div class="container project-hero-content">
+      <div class="project-hero-eyebrow">
+        <a href="../../">Home</a>
+        <span>/</span>
+        <a href="../../#projects">Projects</a>
+        <span>/</span>
+        <span>Instacart Market Basket</span>
+      </div>
+
+      <h1>Instacart Market Basket<br>Data Pipeline &amp; Analytics</h1>
+
+      <p class="project-hero-desc">
+        A Python and SQL Server pipeline for 34M+ Instacart transactional records, orchestrated with Apache Airflow in Docker.
+        Layered transformations and a star schema support Power BI reporting; the case study explains ingestion, modeling and analytical outputs.
+      </p>
+
+      <div class="project-meta-row">
+        <div class="project-meta-item">
+          <span class="project-meta-label">Type</span>
+          <span class="project-meta-value">Data Engineering & Analytics</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Architecture</span>
+          <span class="project-meta-value">Medallion (Bronze → Silver → Gold)</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Dataset</span>
+          <span class="project-meta-value">Instacart Market Basket (Kaggle) - 34M+ Rows</span>
+        </div>
+        <div class="project-meta-item">
+          <span class="project-meta-label">Source Code</span>
+          <span class="project-meta-value">
+            <a href="https://github.com/vdh-hoangdata/Instacart_Market_Basket_DW_Project" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Project Content ────────────────────────────────────── -->
+  <main class="project-main" id="main-content" tabindex="-1">
+    <div class="container project-grid-layout">
+
+      <!-- Left Table of Contents (Sticky) -->
+      <aside class="project-sidebar">
+        <nav class="toc" aria-label="Table of Contents">
+          <p class="toc-heading">Contents</p>
+          <ul>
+            <li><a href="#overview">Project Overview</a></li>
+            <li><a href="#architecture">System Architecture</a></li>
+            <li><a href="#bronze">🥉 Bronze Layer</a></li>
+            <li><a href="#silver">🥈 Silver Layer</a></li>
+            <li><a href="#gold">🥇 Gold Layer & Star Schema</a></li>
+            <li><a href="#orchestration">⚙️ Tech Stack & Showcase</a></li>
+            <li><a href="#powerbi">📊 Power BI Analytics</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Right Main Content -->
+      <article class="project-article">
+<!-- case:reading-guide start -->
+<section class="case-summary" aria-labelledby="case-summary-title"><h2 id="case-summary-title">Case study at a glance</h2><dl><div><dt>Problem</dt><dd>Make grocery transactions usable for purchasing analysis.</dd></div><div><dt>Approach</dt><dd>Built a Python/SQL Server pipeline, orchestrated with Airflow.</dd></div><div><dt>Implementation</dt><dd>Tools and techniques: Data Warehouse, Apache Airflow, Power BI, SQL Server, Python, Docker.</dd></div><div><dt>Outcome</dt><dd>An analytical star schema and Power BI reports for customer and product exploration.</dd></div></dl></section>
+<!-- case:reading-guide end -->
+
+        <!-- ══════════ OVERVIEW ══════════ -->
+        <section class="prose">
+          <h2 id="overview">Project Overview</h2>
+          <p class="lead">
+            This project is an end-to-end <strong>Data Engineering and Data Analytics</strong> solution built around the famous Instacart Market Basket dataset. The primary goal is to build a robust, scalable automated data pipeline that processes over <strong>34 million rows</strong> of transactional data, transforming it into a business-ready <strong>Star Schema</strong>.
+          </p>
+          <p>
+            It uncovers actionable insights regarding customer purchasing behaviors. This demonstrates the capability to conceptualize, design, and implement a full-stack data project suitable for real-world enterprise environments.
+          </p>
+        </section>
+        <hr class="section-divider" />
+
+        <!-- ══════════ ARCHITECTURE ══════════ -->
+        <section class="prose">
+          <h2 id="architecture">System Architecture</h2>
+          <p>
+            The project strictly implements the <strong>Medallion Architecture</strong> pattern (Bronze ➔ Silver ➔ Gold), orchestrated dynamically via <strong>Apache Airflow</strong> running in a <strong>Dockerized</strong> environment.
+          </p>
+          <figure class="diagram-wrap fade-in">
+            <a class="image-link" href="../../assets/images/instacart_market_basket/airflow_success.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Airflow DAG Pipeline"><img alt="Airflow DAG Pipeline" decoding="async" height="863" loading="lazy" src="../../assets/images/instacart_market_basket/airflow_success.webp" style="width:100%; border-radius:8px; border:1px solid var(--cream-3);" width="1918"/><span class="image-link-hint">View full size ↗</span></a>
+            <figcaption>Airflow DAG Orchestration</figcaption>
+          </figure>
+
+          <h3 id="bronze">🥉 1. Bronze Layer (Raw Data Ingestion)</h3>
+          <ul>
+            <li><strong>Tooling:</strong> Python (Pandas/SQLAlchemy)</li>
+            <li><strong>Methodology:</strong> Scans <code>1_Inbound_Data</code> for raw CSV drops, safely buffers raw data by moving it to <code>2_Processing_Data</code>.</li>
+            <li><strong>Chunking:</strong> To prevent memory crashes when handling the massive <code>order_products</code> dataset (32.4M+ rows), data is read and ingested incrementally using <strong>Pandas Chunks (150,000 rows/chunk)</strong>.</li>
+            <li><strong>Idempotency & Audit:</strong> Appends strict audit trails (<code>_source_file_name</code>, <code>_etl_load_datetime</code>). Processed files are moved to <code>3_Archive_Data</code> or routed to <code>4_Error_Data</code>.</li>
+          </ul>
+
+          <h3 id="silver">🥈 2. Silver Layer (Cleansing & Structuring)</h3>
+          <ul>
+            <li><strong>Tooling:</strong> SQL Server (Stored Procedures)</li>
+            <li><strong>Methodology:</strong> Standardizes data types, logically merges datasets utilizing high-performance <code>UNION ALL</code>.</li>
+            <li><strong>Columnstore Indexes:</strong> Implements <strong>Clustered Columnstore Index (CCI)</strong> on the massive 33.8 million row orders table. This dramatically compresses data and reduces I/O bottleneck, acting as a massive performance tuner for downstream analytical queries.</li>
+          </ul>
+
+          <h3 id="gold">🥇 3. Gold Layer & Star Schema</h3>
+          <p>
+            Constructs a highly optimized Star Schema supporting BI reporting.
+          </p>
+          <ul>
+            <li><strong><code>dim_products</code>:</strong> Denormalizes Snowflake structure (Products + Departments + Aisles).</li>
+            <li><strong><code>dim_users</code>:</strong> Extracted implicitly representing customers with lifetime aggregated logic.</li>
+            <li><strong><code>dim_time_slot</code>:</strong> Derived dimensional logic mapping out 'Weekend vs Weekday' and 'Morning/Afternoon/Evening/Night' buckets.</li>
+            <li><strong><code>fact_order_items</code>:</strong> The optimized heavy-lifting fact table storing every product interaction.</li>
+          </ul>
+          
+          <figure class="diagram-wrap fade-in">
+            <a class="image-link" href="../../assets/images/instacart_market_basket/schema_dbdiagram.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Star Schema Database Diagram"><img alt="Star Schema Database Diagram" decoding="async" height="778" loading="lazy" src="../../assets/images/instacart_market_basket/schema_dbdiagram.webp" style="width:100%; border-radius:8px; border:1px solid var(--cream-3);" width="1529"/><span class="image-link-hint">View full size ↗</span></a>
+            <figcaption>Star Schema Design using dbdiagram.io</figcaption>
+          </figure>
+
+        </section>
+        <hr class="section-divider" />
+
+        <!-- ══════════ TECH STACK & PIPELINE ══════════ -->
+        <section class="prose">
+          <h2 id="orchestration">⚙️ Tech Stack & Skills Showcased</h2>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <span class="tech-icon">⚙️</span>
+              <div class="tech-info">
+                <strong>Data Engineering</strong>
+                <span>Apache Airflow (DAGs), Python, Medallion Architecture, Pandas Chunking, Idempotency design</span>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-icon">🗄️</span>
+              <div class="tech-info">
+                <strong>Database Ops</strong>
+                <span>Microsoft SQL Server, Stored Procedures, Columnstore Indexes, Star Schema, Query Tuning</span>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-icon">📊</span>
+              <div class="tech-info">
+                <strong>Data Analysis</strong>
+                <span>Python (Pandas), SQL Analytics, Market Basket Analysis</span>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-icon">🐳</span>
+              <div class="tech-info">
+                <strong>DevOps / Infra</strong>
+                <span>Docker, Docker Compose, Git</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr class="section-divider" />
+
+        <!-- ══════════ POWER BI ══════════ -->
+        <section class="prose">
+          <h2 id="powerbi">📊 Analytical Capabilities & Power BI Dashboard Gallery</h2>
+          <p>
+            The pipeline powers a comprehensive BI reporting suite extracting business patterns like <strong>Product Affinities</strong>, <strong>Reorder Trends</strong>, and <strong>Temporal Patterns</strong>.
+          </p>
+
+          <figure class="img-zoom-wrap fade-in">
+            <a class="image-link" href="../../assets/images/instacart_market_basket/1_executive_summary.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Executive Summary"><img alt="Executive Summary" decoding="async" height="861" loading="lazy" src="../../assets/images/instacart_market_basket/1_executive_summary.webp" width="1422"/><span class="image-link-hint">View full size ↗</span></a>
+            <figcaption><strong>1. Executive Summary:</strong> High-level KPIs, total orders, revenue proxy, and overall purchasing trends.</figcaption>
+          </figure>
+
+          <figure class="img-zoom-wrap fade-in">
+            <a class="image-link" href="../../assets/images/instacart_market_basket/2_customer360.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Customer 360"><img alt="Customer 360" decoding="async" height="861" loading="lazy" src="../../assets/images/instacart_market_basket/2_customer360.webp" width="1421"/><span class="image-link-hint">View full size ↗</span></a>
+            <figcaption><strong>2. Customer 360:</strong> Insights into user behaviors, order frequencies, and lifetime value segments.</figcaption>
+          </figure>
+
+          <figure class="img-zoom-wrap fade-in">
+            <a class="image-link" href="../../assets/images/instacart_market_basket/3_product_performance.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Product Performance"><img alt="Product Performance" decoding="async" height="860" loading="lazy" src="../../assets/images/instacart_market_basket/3_product_performance.webp" width="1421"/><span class="image-link-hint">View full size ↗</span></a>
+            <figcaption><strong>3. Product Performance:</strong> Evaluation of best-selling products, category distributions, and reorder rates.</figcaption>
+          </figure>
+
+          <figure class="img-zoom-wrap fade-in">
+            <a class="image-link" href="../../assets/images/instacart_market_basket/4_item_deep_dive.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Item Deep Dive"><img alt="Item Deep Dive" decoding="async" height="862" loading="lazy" src="../../assets/images/instacart_market_basket/4_item_deep_dive.webp" width="1417"/><span class="image-link-hint">View full size ↗</span></a>
+            <figcaption><strong>4. Item Deep Dive & Market Basket:</strong> Association patterns and detailed drill-downs on product relationships.</figcaption>
+          </figure>
+        </section>
+
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <div id="footer-placeholder">
+<!-- shared:footer start -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">// Vu Duc Hoang</span>
+      <span class="footer-copy">© <span id="current-year">2026</span> · Data Analytics · Data Engineering · Python Automation</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/vdh-hoangdata" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/duc-hoang-vu-data/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="mailto:vdh.hoang.data@gmail.com" aria-label="Email">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 001.228 0L20 9.044 20.002 18H4z"/>
+        </svg>
+        Email
+      </a>
+    </div>
+  </div>
+</footer>
+<!-- shared:footer end -->
+</div>
+
+  <!-- Shared JS -->
+</body>
+</html>

@@ -1,0 +1,69 @@
+# Local authoring, Python development and QA
+scripts/
+*.py
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+env/
+node_modules/
+
+# Documentation and reports stay local
+*.md
+*.markdown
+
+# Private documents, authoring metadata and source datasets
+*.docx
+*.doc
+*.pdf
+*.json
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.ipynb
+*.sqlite
+*.db
+_olist_extract/
+data/
+
+# QA evidence, release output and backups
+.phase*-evidence/
+.final-evidence/
+_site/
+public-release/
+*.bak
+*.tmp
+*.old
+*.orig
+*.log
+*.zip
+*.7z
+
+# Local environment (templates are local too)
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local legacy CI is not part of the public website
+.github/workflows/
+
+# Local reference images and identical copies omitted from the public export
+assets/images/Olist_DW_img/airflow_dag.png
+assets/images/Olist_DW_v2/Hinh_EDA-1.png
+assets/images/Olist_DW_v2/Hinh_EDA-2.png
+assets/images/Olist_DW_v2/Hinh_EDA-3.png
+assets/images/Olist_DW_v2/Hinh_EDA-4.png
+assets/images/Olist_DW_v2/Hinh_Risk_Breakdown_theo_customer_state_trong_thang_2018-03.png
+assets/images/Olist_DW_v2/drilldown_category.png
+assets/images/Olist_DW_v2/seller_dai_han_chiem_it_nhung_dong_gop_GMV_lon_hon.png
+assets/images/web-scraping/pinterest_download_selenium/folders.webp
+assets/images/web-scraping/pinterest_download_selenium/txt_static.webp
+assets/images/web-scraping/vnexpress_news/news-scraper.svg
+assets/images/web-scraping/vnexpress_scores/score-tracker.svg
+assets/images/web-scraping/wiki_table/table-extractor.svg

@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta name="color-scheme" content="light dark" />
+  <script src="../../assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="../../assets/css/fonts.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script src="../../assets/js/main.js"></script>
+<!-- site:seo start -->
+  <title>Olist v1: SQL Server Warehouse | Vu Duc Hoang</title>
+  <meta name="description" content="Explore an Olist SQL Server warehouse architecture variant, with layered transformations, Airflow orchestration and Power BI reporting." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vu Duc Hoang Portfolio" />
+  <meta property="og:title" content="Olist v1: SQL Server Warehouse | Vu Duc Hoang" />
+  <meta property="og:description" content="Explore an Olist SQL Server warehouse architecture variant, with layered transformations, Airflow orchestration and Power BI reporting." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Olist v1: SQL Server Warehouse | Vu Duc Hoang" />
+  <meta name="twitter:description" content="Explore an Olist SQL Server warehouse architecture variant, with layered transformations, Airflow orchestration and Power BI reporting." />
+  <link rel="canonical" href="https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/" />
+  <meta property="og:url" content="https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/" />
+  <meta property="og:image" content="https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/olist-data-warehouse-v1.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Project preview: End-to-End Olist E-Commerce Data Warehouse Pipeline." />
+  <meta name="twitter:image" content="https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/olist-data-warehouse-v1.png" />
+  <meta name="twitter:image:alt" content="Project preview: End-to-End Olist E-Commerce Data Warehouse Pipeline." />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","name":"Vu Duc Hoang","sameAs":["https://github.com/vdh-hoangdata","https://www.linkedin.com/in/duc-hoang-vu-data/"],"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person","url":"https://vdh-hoangdata.github.io/vdh-portfolio/"},{"@type":"WebSite","name":"Vu Duc Hoang Portfolio","inLanguage":"en","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#website","url":"https://vdh-hoangdata.github.io/vdh-portfolio/","publisher":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"}},{"@type":"WebPage","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/#webpage","url":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/","name":"Olist v1: SQL Server Warehouse | Vu Duc Hoang","inLanguage":"en","isPartOf":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#website"},"about":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"},"mainEntity":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/#project"},"breadcrumb":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/#breadcrumbs"}},{"@type":"CreativeWork","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/#project","url":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/","name":"End-to-End Olist E-Commerce Data Warehouse Pipeline","description":"Explore an Olist SQL Server warehouse architecture variant, with layered transformations, Airflow orchestration and Power BI reporting.","inLanguage":"en","author":{"@id":"https://vdh-hoangdata.github.io/vdh-portfolio/#person"},"image":"https://vdh-hoangdata.github.io/vdh-portfolio/assets/images/social/olist-data-warehouse-v1.png"},{"@type":"BreadcrumbList","@id":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vdh-hoangdata.github.io/vdh-portfolio/"},{"@type":"ListItem","position":2,"name":"End-to-End Olist E-Commerce Data Warehouse Pipeline","item":"https://vdh-hoangdata.github.io/vdh-portfolio/projects/olist-data-warehouse-v1/"}]}]}</script>
+<!-- site:seo end -->
+</head>
+
+<body>
+
+    <!-- ── Header ─────────────────────────────────────────────── -->
+    <div id="header-placeholder">
+<!-- shared:header start -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../../" class="nav-logo" aria-label="VH vdh.hoang.data portfolio home">
+      <span class="nav-logo-mark">VH</span>
+      vdh.hoang.data
+    </a>
+
+    <div class="nav-actions">
+      <label class="theme-control" hidden>
+        <span class="sr-only">Color theme</span>
+        <select id="theme-preference">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
+      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <ul class="nav-links" id="primary-navigation">
+      <li><a href="../../">Home</a></li>
+      <li><a href="../../#projects">Projects</a></li>
+      <li><a href="../../#about">About</a></li>
+      <li><a href="mailto:vdh.hoang.data@gmail.com">Contact</a></li>
+      <li>
+        <a href="https://github.com/vdh-hoangdata" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          GitHub ↗
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- shared:header end -->
+</div>
+
+    <!-- ── Project Hero ───────────────────────────────────────── -->
+    <main id="main-content" tabindex="-1">
+<header class="project-hero">
+        <div class="container project-hero-content">
+            <div class="project-hero-eyebrow">
+                <a href="../../">Home</a>
+                <span>/</span>
+                <a href="../../#projects">Projects</a>
+                <span>/</span>
+                <span>Olist Data Warehouse</span>
+            </div>
+
+            <h1>Olist E-Commerce<br>Data Warehouse Pipeline</h1>
+
+            <p class="project-hero-desc">A SQL Server warehouse architecture variant for Olist e-commerce data, with layered transformations, Airflow orchestration and Power BI reporting.</p>
+
+            <div class="project-meta-row">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Type</span>
+                    <span class="project-meta-value">Data Engineering</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Architecture</span>
+                    <span class="project-meta-value">Medallion (Bronze → Silver → Gold)</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Dataset</span>
+                    <span class="project-meta-value">Olist Brazilian E-Commerce (Kaggle)</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Source</span>
+                    <span class="project-meta-value">
+                        <a href="https://github.com/vdh-hoangdata/Olist_DW_Project"
+                            style="color:rgba(247,245,239,.8); text-decoration:underline; text-underline-offset:3px;" target="_blank" rel="noopener noreferrer">
+                            GitHub ↗
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Case Study ─────────────────────────────────────────── -->
+    <section class="case-study">
+        <div class="container">
+            <div class="case-study-layout">
+
+                <!-- Table of Contents (sticky sidebar) -->
+                <aside class="case-study-toc" aria-label="Table of contents">
+                    <div class="toc-label">On this page</div>
+                    <nav class="toc-list">
+                        <a href="#overview">Overview</a>
+                        <a href="#architecture">Architecture</a>
+                        <a href="#tech-stack">Tech Stack</a>
+                        <a href="#bronze">Bronze Layer</a>
+                        <a href="#silver">Silver Layer</a>
+                        <a href="#gold">Gold Layer</a>
+                        <a href="#star-schema">Star Schema</a>
+                        <a href="#orchestration">Orchestration</a>
+                        <a href="#powerbi">Power BI</a>
+                        <a href="#challenges">Challenges Solved</a>
+                        <a href="#results">Results</a>
+                    </nav>
+                </aside>
+
+                <!-- Main article -->
+                <article class="article-body">
+<!-- case:reading-guide start -->
+<section class="case-summary" aria-labelledby="case-summary-title"><h2 id="case-summary-title">Case study at a glance</h2><dl><div><dt>Problem</dt><dd>Organize Olist CSV data for repeatable reporting.</dd></div><div><dt>Approach</dt><dd>Designed SQL Server Bronze, Silver and Gold layers with Airflow orchestration.</dd></div><div><dt>Implementation</dt><dd>Tools and techniques: Data Warehouse, Apache Airflow, Power BI, SQL Server, Python, Docker.</dd></div><div><dt>Outcome</dt><dd>A dimensional warehouse design and Power BI report pages.</dd></div></dl></section>
+<!-- case:reading-guide end -->
+
+                    <!-- ════════════════════════════════════════════════════
+               OVERVIEW
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="overview">Project Overview</h2>
+            <div class="callout blue evidence-note"><strong>Implementation and evidence scope</strong><p>This page preserves the SQL Server + Airflow architecture variant. The supplied Olist analysis report documents a separate PostgreSQL + dlt + dbt + Airflow/Docker implementation. Shared analytical concepts are supported by that report; this variant's deployment and runtime performance require separate execution evidence.</p></div>
+
+                    <p>
+                        The <strong>Olist E-Commerce Data Warehouse</strong> is a fully automated, end-to-end data
+                        pipeline
+                        built on top of the publicly available
+                        <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce"
+                            style="color:var(--blue); text-decoration:underline; text-underline-offset:3px;" target="_blank" rel="noopener noreferrer">Olist
+                            Brazilian E-Commerce dataset</a>
+                        on Kaggle. The dataset contains approximately 100,000 orders, spanning customers, sellers,
+                        products,
+                        payments, reviews, and geolocation data across Brazil.
+                    </p>
+                    <p>
+                        The project simulates a real-world data engineering workflow: raw CSV files arrive daily,
+                        are ingested into a landing zone, cleansed, modeled into an analytical warehouse, and
+                        surfaced to stakeholders via a Power BI dashboard — all triggered automatically by Apache
+                        Airflow.
+                    </p>
+
+                    <div class="callout teal">
+                        <strong>End-to-End Scope</strong>
+                        This project covers every stage of the data engineering lifecycle: ingestion with Python,
+                        cleansing with T-SQL Stored Procedures, modeling as a Star Schema in SQL Server,
+                        orchestration with Airflow in Docker, and analytics with Power BI DAX.
+                    </div>
+
+                    <!-- ════════════════════════════════════════════════════
+               PIPELINE ARCHITECTURE DIAGRAM
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="architecture">Pipeline Architecture</h2>
+
+                    <p>
+                        The pipeline follows the <strong>Medallion Architecture</strong> — a three-layer pattern
+                        that progressively refines data quality from raw landing to business-ready analytics.
+                        Apache Airflow acts as the orchestrator for the entire flow.
+                    </p>
+
+                    <figure class="diagram-wrap diagram-scroll fade-in" tabindex="0" role="region" aria-label="Architecture diagram, horizontally scrollable">
+                        <!-- ╔══════════════════════════════════════╗
+                 ║  Pipeline Architecture SVG Diagram  ║
+                 ╚══════════════════════════════════════╝ -->
+                        <svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg"
+                            style="width:100%;height:auto;font-family:'JetBrains Mono',monospace;" role="img"
+                            aria-label="Data pipeline architecture diagram">
+
+                            <defs>
+                                <!-- Arrow marker -->
+                                <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                    <path d="M0,0 L0,6 L8,3 z" fill="#7A7A96" />
+                                </marker>
+                                <marker id="arr-gold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                    <path d="M0,0 L0,6 L8,3 z" fill="#C9973A" />
+                                </marker>
+                                <!-- Glow filter -->
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="3" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+
+                            <!-- Background subtle grid -->
+                            <rect width="860" height="340" fill="#FAFAF8" rx="8" />
+                            <line x1="0" y1="170" x2="860" y2="170" stroke="#E4E1D6" stroke-width="1"
+                                stroke-dasharray="4 4" />
+
+                            <!-- ── AIRFLOW BAND (bottom orchestration layer) ── -->
+                            <rect x="20" y="250" width="820" height="62" rx="8" fill="#1A1A2E" opacity=".05" />
+                            <rect x="20" y="250" width="820" height="62" rx="8" fill="none" stroke="#1A1A2E"
+                                stroke-width="1.5" stroke-dasharray="6 4" opacity=".18" />
+                            <text x="52" y="283" font-size="10.5" fill="#3D3D52" font-weight="500"
+                                letter-spacing="0.05em">ORCHESTRATION</text>
+                            <text x="52" y="298" font-size="10" fill="#7A7A96">Apache Airflow + Docker · olist_pipeline
+                                DAG · Daily Schedule</text>
+
+                            <!-- Airflow icon circle -->
+                            <circle cx="820" cy="281" r="18" fill="#017CEE" opacity=".12" />
+                            <text x="820" y="286" text-anchor="middle" font-size="10" fill="#017CEE"
+                                font-weight="600">AF</text>
+
+                            <!-- ── CONNECTOR LINES ── -->
+                            <!-- CSV → Python -->
+                            <line x1="118" y1="140" x2="158" y2="140" stroke="#7A7A96" stroke-width="1.5"
+                                marker-end="url(#arr)" />
+                            <!-- Python → Bronze -->
+                            <line x1="238" y1="140" x2="278" y2="140" stroke="#7A7A96" stroke-width="1.5"
+                                marker-end="url(#arr)" />
+                            <!-- Bronze → Silver -->
+                            <line x1="378" y1="140" x2="418" y2="140" stroke="#7A7A96" stroke-width="1.5"
+                                marker-end="url(#arr)" />
+                            <!-- Silver → Gold -->
+                            <line x1="498" y1="140" x2="538" y2="140" stroke="#C9973A" stroke-width="2"
+                                marker-end="url(#arr-gold)" />
+                            <!-- Gold → Power BI -->
+                            <line x1="638" y1="140" x2="678" y2="140" stroke="#C9973A" stroke-width="2"
+                                marker-end="url(#arr-gold)" />
+
+                            <!-- ── NODE: CSV Files ── -->
+                            <rect x="18" y="96" width="100" height="88" rx="8" fill="#F7F5EF" stroke="#E4E1D6"
+                                stroke-width="1.5" />
+                            <text x="68" y="126" text-anchor="middle" font-size="10" fill="#7A7A96"
+                                letter-spacing=".04em">SOURCE</text>
+                            <!-- CSV icon -->
+                            <rect x="51" y="102" width="34" height="18" rx="3" fill="#E4E1D6" />
+                            <text x="68" y="115" text-anchor="middle" font-size="8.5" fill="#3D3D52"
+                                font-weight="600">CSV</text>
+                            <text x="68" y="146" text-anchor="middle" font-size="11" fill="#141420"
+                                font-weight="500">Raw Files</text>
+                            <text x="68" y="161" text-anchor="middle" font-size="9" fill="#7A7A96">9 CSV tables</text>
+                            <text x="68" y="173" text-anchor="middle" font-size="9" fill="#7A7A96">~100k orders</text>
+
+                            <!-- ── NODE: Python Ingestion ── -->
+                            <rect x="158" y="96" width="100" height="88" rx="8" fill="#EFF6FF" stroke="#BFDBFE"
+                                stroke-width="1.5" />
+                            <text x="208" y="118" text-anchor="middle" font-size="10" fill="#2561A8"
+                                letter-spacing=".04em">INGEST</text>
+                            <text x="208" y="136" text-anchor="middle" font-size="18" fill="#2561A8">🐍</text>
+                            <text x="208" y="155" text-anchor="middle" font-size="11" fill="#141420"
+                                font-weight="500">Python</text>
+                            <text x="208" y="169" text-anchor="middle" font-size="9" fill="#2561A8">Pandas +
+                                SQLAlchemy</text>
+                            <text x="208" y="181" text-anchor="middle" font-size="9" fill="#7A7A96">dtype=str · audit
+                                cols</text>
+
+                            <!-- ── NODE: Bronze Layer ── -->
+                            <rect x="278" y="88" width="100" height="104" rx="8" fill="#FFF7ED" stroke="#FED7AA"
+                                stroke-width="1.5" />
+                            <rect x="278" y="88" width="100" height="8" rx="4" fill="#CD7F32" />
+                            <text x="328" y="112" text-anchor="middle" font-size="10" fill="#CD7F32"
+                                letter-spacing=".04em">BRONZE 🥉</text>
+                            <text x="328" y="130" text-anchor="middle" font-size="18">🗄️</text>
+                            <text x="328" y="150" text-anchor="middle" font-size="11" fill="#141420"
+                                font-weight="500">Landing Zone</text>
+                            <text x="328" y="164" text-anchor="middle" font-size="9" fill="#92400E">Raw strings</text>
+                            <text x="328" y="176" text-anchor="middle" font-size="9" fill="#92400E">+ audit
+                                metadata</text>
+                            <text x="328" y="188" text-anchor="middle" font-size="9" fill="#7A7A96">SQL Server
+                                schema</text>
+
+                            <!-- ── NODE: Silver Layer ── -->
+                            <rect x="418" y="88" width="100" height="104" rx="8" fill="#F0F9FF" stroke="#BAE6FD"
+                                stroke-width="1.5" />
+                            <rect x="418" y="88" width="100" height="8" rx="4" fill="#6B7280" />
+                            <text x="468" y="112" text-anchor="middle" font-size="10" fill="#374151"
+                                letter-spacing=".04em">SILVER 🥈</text>
+                            <text x="468" y="130" text-anchor="middle" font-size="18">🔧</text>
+                            <text x="468" y="150" text-anchor="middle" font-size="11" fill="#141420"
+                                font-weight="500">Cleanse &amp; Conform</text>
+                            <text x="468" y="164" text-anchor="middle" font-size="9" fill="#1D4ED8">TRY_CAST ·
+                                MERGE</text>
+                            <text x="468" y="176" text-anchor="middle" font-size="9" fill="#1D4ED8">ROW_NUMBER
+                                dedup</text>
+                            <text x="468" y="188" text-anchor="middle" font-size="9" fill="#7A7A96">9 Stored
+                                Procedures</text>
+
+                            <!-- ── NODE: Gold Layer ── -->
+                            <rect x="538" y="84" width="100" height="112" rx="8" fill="#FFFBEB" stroke="#FDE68A"
+                                stroke-width="2" />
+                            <rect x="538" y="84" width="100" height="8" rx="4" fill="#D97706" />
+                            <text x="588" y="108" text-anchor="middle" font-size="10" fill="#D97706"
+                                letter-spacing=".04em">GOLD 🥇</text>
+                            <text x="588" y="126" text-anchor="middle" font-size="18">⭐</text>
+                            <text x="588" y="146" text-anchor="middle" font-size="11" fill="#141420"
+                                font-weight="500">Star Schema</text>
+                            <text x="588" y="160" text-anchor="middle" font-size="9" fill="#92400E">3 Facts · 6
+                                Dims</text>
+                            <text x="588" y="172" text-anchor="middle" font-size="9" fill="#92400E">Surrogate
+                                Keys</text>
+                            <text x="588" y="184" text-anchor="middle" font-size="9" fill="#7A7A96">Role-Playing
+                                Dates</text>
+                            <text x="588" y="196" text-anchor="middle" font-size="9" fill="#7A7A96">9 Stored
+                                Procedures</text>
+
+                            <!-- ── NODE: Power BI ── -->
+                            <rect x="678" y="88" width="100" height="104" rx="8" fill="#FFFBF0" stroke="#F2C811"
+                                stroke-width="1.5" />
+                            <rect x="678" y="88" width="100" height="8" rx="4" fill="#F2C811" />
+                            <text x="728" y="112" text-anchor="middle" font-size="10" fill="#854D0E"
+                                letter-spacing=".04em">ANALYTICS</text>
+                            <text x="728" y="130" text-anchor="middle" font-size="18">📊</text>
+                            <text x="728" y="150" text-anchor="middle" font-size="11" fill="#141420"
+                                font-weight="500">Power BI</text>
+                            <text x="728" y="164" text-anchor="middle" font-size="9" fill="#854D0E">DAX Measures</text>
+                            <text x="728" y="176" text-anchor="middle" font-size="9" fill="#854D0E">3 Report
+                                Pages</text>
+                            <text x="728" y="188" text-anchor="middle" font-size="9" fill="#7A7A96">DirectQuery
+                                Mode</text>
+
+                            <!-- ── Airflow task labels (connecting to nodes) ── -->
+                            <line x1="208" y1="184" x2="208" y2="250" stroke="#017CEE" stroke-width="1"
+                                stroke-dasharray="3 3" opacity=".5" />
+                            <line x1="328" y1="192" x2="328" y2="250" stroke="#CD7F32" stroke-width="1"
+                                stroke-dasharray="3 3" opacity=".5" />
+                            <line x1="468" y1="192" x2="468" y2="250" stroke="#6B7280" stroke-width="1"
+                                stroke-dasharray="3 3" opacity=".5" />
+                            <line x1="588" y1="196" x2="588" y2="250" stroke="#D97706" stroke-width="1"
+                                stroke-dasharray="3 3" opacity=".5" />
+
+                            <text x="208" y="243" text-anchor="middle" font-size="8" fill="#017CEE"
+                                font-weight="500">Task 1</text>
+                            <text x="328" y="243" text-anchor="middle" font-size="8" fill="#CD7F32"
+                                font-weight="500">Bronze SPs</text>
+                            <text x="468" y="243" text-anchor="middle" font-size="8" fill="#374151"
+                                font-weight="500">Silver Group ∥</text>
+                            <text x="588" y="243" text-anchor="middle" font-size="8" fill="#D97706"
+                                font-weight="500">Gold Steps 1→9</text>
+
+                        </svg>
+                        <figcaption>Fig 1 — End-to-end Medallion Architecture pipeline. Apache Airflow orchestrates all
+                            layers daily.<span class="diagram-help">Scroll horizontally to explore the diagram.</span></figcaption>
+                    </figure>
+
+                    <!-- ════════════════════════════════════════════════════
+               TECH STACK
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="tech-stack">Technology Stack</h2>
+
+                    <div class="stack-pills">
+                        <span class="stack-pill"><span class="dot" style="background:#3670A0"></span>Python 3.9+</span>
+                        <span class="stack-pill"><span class="dot" style="background:#CC292B"></span>SQL Server</span>
+                        <span class="stack-pill"><span class="dot" style="background:#017CEE"></span>Apache
+                            Airflow</span>
+                        <span class="stack-pill"><span class="dot" style="background:#0db7ed"></span>Docker</span>
+                        <span class="stack-pill"><span class="dot" style="background:#F2C811"></span>Power BI</span>
+                        <span class="stack-pill"><span class="dot" style="background:#150458"></span>Pandas</span>
+                        <span class="stack-pill"><span class="dot" style="background:#8B4513"></span>SQLAlchemy</span>
+                        <span class="stack-pill"><span class="dot" style="background:#3D3D52"></span>T-SQL</span>
+                    </div>
+
+                    <!-- ════════════════════════════════════════════════════
+               BRONZE LAYER
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="bronze">🥉 Bronze Layer — Ingestion & Landing Zone</h2>
+
+                    <p>
+                        The Bronze layer is the <strong>raw landing zone</strong>. Its only job is to faithfully
+                        capture data exactly as it arrives from the source, adding audit metadata for traceability.
+                        No transformations, no business logic — just raw ingestion.
+                    </p>
+
+                    <h3>The Inbound → Archive workflow</h3>
+                    <p>
+                        The Python ingestion script (<code>extract_to_bronze.py</code>) watches a directory for
+                        new CSV files and manages a strict state machine for each file:
+                    </p>
+                    <ul>
+                        <li><strong>Inbound/</strong> — files waiting to be processed</li>
+                        <li><strong>Processing/</strong> — files currently being loaded (prevents double processing)
+                        </li>
+                        <li><strong>Archive/</strong> — successfully loaded files</li>
+                        <li><strong>Error/</strong> — failed files, isolated for inspection</li>
+                    </ul>
+
+                    <div class="callout">
+                        <strong>Schema Drift Protection via <code>dtype=str</code></strong>
+                        All CSV columns are read as raw strings using Pandas' <code>dtype=str</code> parameter.
+                        This prevents Pandas from inferring types that could crash the pipeline when the source
+                        system silently changes a column from integer to float (a common real-world hazard).
+                    </div>
+
+                    <div class="code-block" tabindex="0" role="region" aria-label="Scrollable code example"><span class="code-label">extract_to_bronze.py</span>
+<span class="cm"># Read ALL columns as strings to prevent Schema Drift crashes</span>
+df = pd.read_csv(
+filepath,
+dtype=<span class="str">str</span>, <span class="cm"># ← no type assumptions</span>
+keep_default_na=<span class="kw">False</span>
+)
+
+<span class="cm"># Append audit columns for every row</span>
+df[<span class="str">'_source_file_name'</span>] = os.path.basename(filepath)
+df[<span class="str">'_etl_load_datetime'</span>] = datetime.utcnow()
+
+<span class="cm"># Bulk-insert into SQL Server bronze schema</span>
+df.to_sql(
+table_name,
+con=engine,
+schema=<span class="str">'bronze'</span>,
+if_exists=<span class="str">'append'</span>,
+index=<span class="kw">False</span>,
+chunksize=<span class="str">5000</span>
+)</div>
+
+                    <!-- ════════════════════════════════════════════════════
+               SILVER LAYER
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="silver">🥈 Silver Layer — Cleanse & Conform</h2>
+
+                    <p>
+                        Nine T-SQL Stored Procedures handle the entire Bronze → Silver transformation.
+                        Each procedure handles one entity (orders, customers, products, etc.) and applies
+                        three techniques in sequence: type casting, deduplication, and incremental loading.
+                    </p>
+
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <div class="technique-icon">🔀</div>
+                            <h3 class="technique-heading">Safe Type Casting</h3>
+                            <p>TRY_CAST() converts raw strings to proper SQL types; invalid values become NULL instead
+                                of crashing the pipeline.</p>
+                        </div>
+                        <div class="technique-card">
+                            <div class="technique-icon">🔍</div>
+                            <h3 class="technique-heading">Deduplication</h3>
+                            <p>ROW_NUMBER() OVER(PARTITION BY ...) identifies and removes duplicate keys introduced by
+                                source systems.</p>
+                        </div>
+                        <div class="technique-card">
+                            <div class="technique-icon">🔄</div>
+                            <h3 class="technique-heading">Incremental UPSERT</h3>
+                            <p>SQL MERGE statement matches historical keys and UPDATEs changed rows or INSERTs new ones
+                                — no full reloads.</p>
+                        </div>
+                    </div>
+
+                    <h3>Deduplication with ROW_NUMBER()</h3>
+                    <p>
+                        Source systems sometimes emit duplicate keys for the same entity. Blindly loading these
+                        would corrupt analytics. The Silver layer filters them using a Window Function:
+                    </p>
+
+                    <div class="code-block" tabindex="0" role="region" aria-label="Scrollable code example"><span class="code-label">silver_customers.sql</span>
+<span class="kw">WITH</span> deduplicated <span class="kw">AS</span> (
+<span class="kw">SELECT</span> *,
+<span class="fn">ROW_NUMBER</span>() <span class="kw">OVER</span> (
+<span class="kw">PARTITION BY</span> customer_unique_id <span class="cm">-- business key</span>
+<span class="kw">ORDER BY</span> _etl_load_datetime <span class="kw">DESC</span> <span
+    class="cm">-- keep latest</span>
+) <span class="kw">AS</span> rn
+<span class="kw">FROM</span> bronze.olist_customers
+)
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> deduplicated <span
+    class="kw">WHERE</span> rn = <span class="str">1</span></div>
+
+                    <h3>Incremental Loading with SQL MERGE</h3>
+                    <p>
+                        Instead of truncating and reloading the entire Silver table on every pipeline run
+                        (expensive, and causes brief data unavailability), the MERGE statement performs surgical
+                        updates — only touching rows that changed:
+                    </p>
+
+                    <div class="code-block" tabindex="0" role="region" aria-label="Scrollable code example"><span class="code-label">silver UPSERT pattern (MERGE)</span>
+<span class="kw">MERGE</span> silver.customers <span class="kw">AS</span> target
+<span class="kw">USING</span> (
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> deduplicated_bronze
+) <span class="kw">AS</span> source
+<span class="kw">ON</span> target.customer_unique_id = source.customer_unique_id
+
+<span class="kw">WHEN MATCHED AND</span> (target.city != source.city <span class="kw">OR</span>
+...) <span class="kw">THEN</span>
+<span class="kw">UPDATE SET</span> target.city = source.city, ... <span class="cm">-- row
+    changed → UPDATE</span>
+
+<span class="kw">WHEN NOT MATCHED BY TARGET THEN</span>
+<span class="kw">INSERT</span> (customer_unique_id, city, state, ...) <span class="cm">-- new
+    row → INSERT</span>
+<span class="kw">VALUES</span> (source.customer_unique_id, ...);</div>
+
+                    <!-- ════════════════════════════════════════════════════
+               GOLD LAYER
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="gold">🥇 Gold Layer — Data Modeling</h2>
+
+                    <p>
+                        The Gold layer is where <strong>Data Modeling magic happens</strong>. Silver data is
+                        denormalized and restructured into a Star Schema optimized for analytical queries.
+                        Six Dimension tables and three Fact tables are populated by nine Stored Procedures
+                        that run sequentially (Dimensions first, then Facts — enforced by FK constraints).
+                    </p>
+
+                    <div class="callout teal">
+                        <strong>Late-Arriving Facts / Missing Dimension Lookups</strong>
+                        When a Fact record references a Dimension that hasn't been loaded yet,
+                        the Foreign Key join would fail. The solution: pre-insert "Dummy Rows" into every
+                        Dimension with special Surrogate Keys — <code>-1</code> for "Unknown" and
+                        <code>-2</code> for "Not Yet Delivered". Every Fact MERGE uses
+                        <code>COALESCE(lookup_sk, -1)</code> to gracefully degrade instead of dropping rows.
+                        Power BI dashboards never show missing totals.
+                    </div>
+
+                    <h3>Role-Playing Dimensions</h3>
+                    <p>
+                        The <code>DIM_DATE</code> table is a centralized, statically generated date dimension.
+                        Rather than creating separate date tables for each time context, a single Date Dimension
+                        serves multiple roles within the same Fact table via aliased Foreign Keys:
+                    </p>
+                    <ul>
+                        <li><code>purchase_date_sk</code> → DIM_DATE (when was the order placed?)</li>
+                        <li><code>delivered_date_sk</code> → DIM_DATE (when did it arrive?)</li>
+                        <li><code>approved_date_sk</code> → DIM_DATE (when was payment approved?)</li>
+                    </ul>
+                    <p>
+                        Power BI automatically handles the role-playing joins — the single dimension table is
+                        referenced multiple times, enabling synchronized cross-filtering across all three date contexts.
+                    </p>
+
+                    <h3>Solving Cartesian Explosion (Fan-out)</h3>
+
+                    <div class="callout blue">
+                        <strong>The Fan-out Problem</strong>
+                        When you join a 1-to-N table without pre-aggregating, each match creates N copies of the
+                        "1" side. If an order has 5 items, joining payments to items at the wrong grain creates
+                        5 × payment_value instead of 1 — silently doubling (or worse) your financial metrics.
+                        This is catastrophic in a warehouse because BI tools would report inflated revenue.
+                    </div>
+
+                    <p>
+                        The Olist dataset has this exact problem: one order can have multiple items
+                        (<code>order_items</code>)
+                        and multiple payment installments (<code>order_payments</code>). Joining them naively
+                        produces a Cartesian product.
+                    </p>
+                    <p>
+                        The solution is <strong>pre-aggregation before joining</strong> — aggregate payments to
+                        order-level grain before building FACT_ORDER_ITEMS, and keep FACT_ORDER_PAYMENTS
+                        as a completely separate Fact table at payment-row grain:
+                    </p>
+
+                    <div class="code-block" tabindex="0" role="region" aria-label="Scrollable code example"><span class="code-label">gold_FACT_ORDER_ITEMS.sql — Fan-out prevention</span>
+<span class="cm">-- Step 1: Pre-aggregate payments to order grain BEFORE joining</span>
+<span class="kw">WITH</span> payments_agg <span class="kw">AS</span> (
+<span class="kw">SELECT</span>
+order_id,
+<span class="fn">SUM</span>(payment_value) <span class="kw">AS</span> total_payment,
+<span class="fn">COUNT</span>(payment_sequential) <span class="kw">AS</span> payment_count
+<span class="kw">FROM</span> silver.order_payments
+<span class="kw">GROUP BY</span> order_id <span class="cm">-- ← collapse N rows to 1 per
+    order</span>
+),
+
+<span class="cm">-- Step 2: Deduplicate DIM_CUSTOMERS to ensure 1:1 join grain</span>
+<span class="cm">-- (customer_unique_id is the true key, not customer_id)</span>
+unique_customers <span class="kw">AS</span> (
+<span class="kw">SELECT</span> customer_id, customer_unique_id,
+<span class="fn">ROW_NUMBER</span>() <span class="kw">OVER</span> (
+<span class="kw">PARTITION BY</span> customer_unique_id
+<span class="kw">ORDER BY</span> customer_id
+) rn
+<span class="kw">FROM</span> silver.customers
+)
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> unique_customers <span
+    class="kw">WHERE</span> rn = <span class="str">1</span>
+
+<span class="cm">-- Step 3: Build Fact at correct item grain using pre-aggregated
+    dimensions</span>
+<span class="kw">INSERT INTO</span> gold.FACT_ORDER_ITEMS
+<span class="kw">SELECT</span>
+oi.order_id,
+oi.order_item_id, <span class="cm">-- natural composite key</span>
+dp.product_sk,
+ds.seller_sk,
+dc.customer_sk,
+<span class="fn">COALESCE</span>(dd.date_sk, <span class="str">-1</span>) purchase_date_sk,
+oi.price,
+oi.freight_value
+<span class="kw">FROM</span> silver.order_items oi
+<span class="kw">JOIN</span> silver.orders o <span class="kw">ON</span> oi.order_id = o.order_id
+<span class="kw">JOIN</span> unique_customers c <span class="kw">ON</span> o.customer_id =
+c.customer_id <span class="cm">-- 1:1 now</span>
+<span class="kw">JOIN</span> gold.DIM_CUSTOMERS dc <span class="kw">ON</span>
+c.customer_unique_id = dc.customer_unique_id
+<span class="kw">...</span></div>
+
+                    <!-- ════════════════════════════════════════════════════
+               STAR SCHEMA DIAGRAM
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="star-schema">Star Schema Design</h2>
+                    <p>
+                        The Gold layer materializes as a classic Star Schema: 3 central Fact tables connected
+                        to 6 shared Dimension tables via Surrogate Keys. Surrogate Keys (<code>_sk</code>)
+                        are system-generated INT identities that decouple the warehouse from source system key changes.
+                    </p>
+
+                    <div class="schema-wrap fade-in">
+                        <figure class="screenshot-item">
+                            <a class="image-link" href="../../assets/images/Olist_DW_img/star schema.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Star Schema entity-relationship diagram"><img alt="Star Schema entity-relationship diagram" decoding="async" height="1115" loading="lazy" src="../../assets/images/Olist_DW_img/star schema.webp" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--cream-3);" width="1692"/><span class="image-link-hint">View full size ↗</span></a>
+                        </figure>
+                    </div>
+
+                    <!-- ════════════════════════════════════════════════════
+               ORCHESTRATION
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="orchestration">⏱ Orchestration with Apache Airflow</h2>
+
+                    <p>
+                        The entire pipeline is orchestrated by a Dockerized Apache Airflow instance. The DAG
+                        (<code>olist_pipeline.py</code>) runs on a daily schedule and manages three phases
+                        with different parallelism strategies.
+                    </p>
+
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <div class="technique-icon">🐍</div>
+                            <h3 class="technique-heading">Task 1 — Ingestion</h3>
+                            <p>PythonOperator triggers the Bronze ingestion script, processing all files in the Inbound
+                                directory.</p>
+                        </div>
+                        <div class="technique-card">
+                            <div class="technique-icon">⚡</div>
+                            <h3 class="technique-heading">Task 2 — Silver (Parallel)</h3>
+                            <p>All 9 Silver Stored Procedures run simultaneously inside a TaskGroup — independent
+                                tables, maximum parallelism.</p>
+                        </div>
+                        <div class="technique-card">
+                            <div class="technique-icon">🔗</div>
+                            <h3 class="technique-heading">Task 3 — Gold (Sequential)</h3>
+                            <p>Gold SPs run in strict order (Steps 1→9). Dimensions populate before Facts to satisfy FK
+                                constraints.</p>
+                        </div>
+                    </div>
+
+                    <div class="callout blue">
+                        <strong>Docker + host.docker.internal</strong>
+                        Airflow runs inside Docker containers while SQL Server runs natively on the host Windows
+                        machine.
+                        The critical connection setting is <code>Host: host.docker.internal</code> in the
+                        Airflow MsSqlOperator connection, which routes from the container network out to the
+                        host machine's Port 1433 via TCP/IP.
+                    </div>
+
+                    <!-- ════════════════════════════════════════════════════
+               POWER BI
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="powerbi">📊 Power BI Analytics</h2>
+
+                    <p>
+                        Power BI connects directly to the Gold layer Star Schema in SQL Server.
+                        Three report pages answer core business questions with advanced DAX and conditional formatting.
+                    </p>
+
+                    <div class="technique-grid">
+                        <div class="technique-card">
+                            <div class="technique-icon">🚚</div>
+                            <h3 class="technique-heading">Logistics Performance</h3>
+                            <p>Late delivery rate by state/city. Map visual + Bar chart with conditional formatting —
+                                bars turn red if rate exceeds 30%.</p>
+                        </div>
+                        <div class="technique-card">
+                            <div class="technique-icon">⭐</div>
+                            <h3 class="technique-heading">Customer Satisfaction</h3>
+                            <p>Scatter chart showing correlation between average delivery delay (days) and customer
+                                review score.</p>
+                        </div>
+                        <div class="technique-card">
+                            <div class="technique-icon">💰</div>
+                            <h4>Sales & Revenue</h4>
+                            <p>Revenue growth by category, freight value trends, and period-over-period comparisons
+                                using DAX time intelligence.</p>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-grid">
+                        <figure class="screenshot-item">
+                            <a class="image-link" href="../../assets/images/Olist_DW_img/power bi logistics performance.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Power BI Logistics Performance dashboard page"><img alt="Power BI Logistics Performance dashboard page" decoding="async" height="732" loading="lazy" onerror="this.parentElement.style.display='none'" src="../../assets/images/Olist_DW_img/power bi logistics performance.webp" width="1302"/><span class="image-link-hint">View full size ↗</span></a>
+                            <figcaption>Logistics Performance — Late delivery rate by state</figcaption>
+                        </figure>
+                        <figure class="screenshot-item">
+                            <a class="image-link" href="../../assets/images/Olist_DW_img/power bi customer satisfaction.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Power BI Customer Satisfaction dashboard page"><img alt="Power BI Customer Satisfaction dashboard page" decoding="async" height="730" loading="lazy" onerror="this.parentElement.style.display='none'" src="../../assets/images/Olist_DW_img/power bi customer satisfaction.webp" width="1302"/><span class="image-link-hint">View full size ↗</span></a>
+                            <figcaption>Customer Satisfaction — Delay vs Review score correlation</figcaption>
+                        </figure>
+                        <figure class="screenshot-item">
+                            <a class="image-link" href="../../assets/images/Olist_DW_img/power bi sales and revenue.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Power BI Sales and Revenue dashboard page"><img alt="Power BI Sales and Revenue dashboard page" decoding="async" height="727" loading="lazy" onerror="this.parentElement.style.display='none'" src="../../assets/images/Olist_DW_img/power bi sales and revenue.webp" width="1307"/><span class="image-link-hint">View full size ↗</span></a>
+                            <figcaption>Sales & Revenue — Category breakdown</figcaption>
+                        </figure>
+                        <figure class="screenshot-item">
+                            <a class="image-link" href="../../assets/images/Olist_DW_img/model view power bi.webp" target="_blank" rel="noopener noreferrer" aria-label="View full size: Power BI model view showing Star Schema relationships"><img alt="Power BI model view showing Star Schema relationships" decoding="async" height="791" loading="lazy" onerror="this.parentElement.style.display='none'" src="../../assets/images/Olist_DW_img/model view power bi.webp" width="1032"/><span class="image-link-hint">View full size ↗</span></a>
+                            <figcaption>Power BI Model View — Star Schema relationships</figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- ════════════════════════════════════════════════════
+               CHALLENGES
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="challenges">Key Engineering Challenges Solved</h2>
+
+                    <h3>1. Schema Drift in CSV Sources</h3>
+                    <p>
+                        Source CSV files occasionally change column types between runs (a numeric column arrives
+                        as text, or a date column gains milliseconds). Loading without protection crashes the pipeline.
+                        Solution: always ingest as <code>dtype=str</code>, then apply <code>TRY_CAST()</code> in
+                        Silver — graceful NULL instead of failure.
+                    </p>
+
+                    <h3>2. Duplicate Keys from Source Systems</h3>
+                    <p>
+                        The Olist dataset contains customers registered across multiple orders, with the same
+                        <code>customer_unique_id</code> appearing under different <code>customer_id</code> values.
+                        Joining on the wrong key explodes the grain. Solution: build DIM_CUSTOMERS around
+                        <code>customer_unique_id</code> (the true natural key) with ROW_NUMBER() deduplication
+                        in both Silver and the Gold dimension load.
+                    </p>
+
+                    <h3>3. Cartesian Explosion (Fan-out)</h3>
+                    <p>
+                        The most subtle and dangerous issue. Orders with multiple items joined to orders with
+                        multiple payments create a Cartesian product — multiplying financial metrics by N.
+                        Solution: pre-aggregate payments to order grain before joining, and keep FACT_ORDER_PAYMENTS
+                        as a completely separate Fact table at its natural payment-row grain.
+                    </p>
+
+                    <h3>4. Late-Arriving Facts</h3>
+                    <p>
+                        Orders that haven't been delivered yet have no <code>delivered_date_sk</code> to look up.
+                        A hard FK constraint would reject the entire order row. Solution: DIM_DATE pre-populates
+                        a dummy row with <code>date_sk = -2</code> labeled "Not Yet Delivered". All Fact inserts
+                        use <code>COALESCE(delivered_date_sk, -2)</code> so undelivered orders are still captured
+                        and aggregated correctly in Power BI.
+                    </p>
+
+                    <!-- ════════════════════════════════════════════════════
+               RESULTS
+               ════════════════════════════════════════════════════ -->
+                    <h2 id="results">Results & Outcomes</h2>
+
+                    <ul>
+                        <li>A Bronze, Silver and Gold pipeline design from CSV ingestion to Power BI.</li>
+                        <li>Independent Silver procedures are scheduled in parallel; runtime improvement has not been benchmarked.</li>
+                        <li>Dummy surrogate keys provide a design for missing dimension lookups.</li>
+                        <li>Pre-aggregation separates item and payment grain to address fan-out.</li>
+                        <li>Power BI report pages cover logistics, customer satisfaction and sales.</li>
+                        <li>Airflow orchestration and Docker configuration are described in this implementation variant.</li>
+                    </ul>
+
+                    <!-- Project nav -->
+                    <div class="project-nav">
+                        <a href="../../#projects" class="project-nav-link">
+                            ← Back to Projects
+                        </a>
+                        <a href="https://github.com/vdh-hoangdata/Olist_DW_Project"
+                            class="project-nav-link" target="_blank" rel="noopener noreferrer">
+                            View on GitHub ↗
+                        </a>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    </main>
+<div id="footer-placeholder">
+<!-- shared:footer start -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">// Vu Duc Hoang</span>
+      <span class="footer-copy">© <span id="current-year">2026</span> · Data Analytics · Data Engineering · Python Automation</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/vdh-hoangdata" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/duc-hoang-vu-data/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="mailto:vdh.hoang.data@gmail.com" aria-label="Email">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 001.228 0L20 9.044 20.002 18H4z"/>
+        </svg>
+        Email
+      </a>
+    </div>
+  </div>
+</footer>
+<!-- shared:footer end -->
+</div>
+</body>
+
+</html>
